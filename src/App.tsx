@@ -1,9 +1,13 @@
-import NavBar from './NavBar.tsx'
+import { NavBar } from './NavBar';
+import { HomePage } from './HomePage';
 
 function App() {
   return (
-    <NavBar />
-  )
+    <div>
+      <NavBar />
+      <HomePage />
+    </div>
+  );
 }
 
 export default App
