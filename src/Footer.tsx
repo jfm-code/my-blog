@@ -3,27 +3,27 @@ export const Footer = () => {
         <div className="flex flex-row bg-[#7c9e83] text-xl">
             <div className="flex flex-col my-14 ml-60 mr-16 space-y-3">
                 <p className="text-white font-bold mb-2">SECTIONS</p>
-                <p className="text-white">About me</p>
-                <p className="text-white">Posts</p>
-                <p className="text-white">Album</p>
-                <p className="text-white">Vlogs</p>
-                <p className="text-white">Projects</p>
+                <p className="text-white hover:underline">About me</p>
+                <p className="text-white hover:underline">Posts</p>
+                <p className="text-white hover:underline">Album</p>
+                <p className="text-white hover:underline">Vlogs</p>
+                <p className="text-white hover:underline">Projects</p>
             </div>
             <div className="flex flex-col my-14 mx-16 space-y-3">
                 <p className="text-white font-bold mb-2">TOPICS</p>
-                <p className="text-white">Education</p>
-                <p className="text-white">Work</p>
-                <p className="text-white">Frienship</p>
-                <p className="text-white">Family</p>
-                <p className="text-white">Mental Health</p>
+                <p className="text-white hover:underline">Education</p>
+                <p className="text-white hover:underline">Work</p>
+                <p className="text-white hover:underline">Frienship</p>
+                <p className="text-white hover:underline">Family</p>
+                <p className="text-white hover:underline">Mental Health</p>
             </div>
             <div className="flex flex-col my-14 mr-60 ml-16 space-y-3">
                 <p className="text-white font-bold mb-2">ALBUM</p>
-                <p className="text-white">Nha Trang 2024</p>
-                <p className="text-white">Being Daisy</p>
-                <p className="text-white">High School</p>
-                <p className="text-white">University</p>
-                <p className="text-white">Phan Thiet 2022</p>
+                <p className="text-white hover:underline">Nha Trang 2024</p>
+                <p className="text-white hover:underline">Being Daisy</p>
+                <p className="text-white hover:underline">High School</p>
+                <p className="text-white hover:underline">University</p>
+                <p className="text-white hover:underline">Phan Thiet 2022</p>
             </div>
             <form className="m-14 space-y-8">
                 <p className="text-white font-bold">SUBSCRIBE FOR EMAILS FROM JFM BLOG</p>

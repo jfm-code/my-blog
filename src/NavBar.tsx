@@ -1,14 +1,22 @@
+import { Link } from 'react-router-dom';
+
 export const NavBar = () => {
   return (
     <nav className="px-20 py-10">
       <div className="flex items-center justify-between">
         <div className="flex flex-row space-x-10">
-          <div className="text-xl font-bold hover:underline">HOME</div>
+          {/* <div className="text-xl font-bold hover:underline">HOME</div>
           <div className="text-xl font-bold hover:underline">ABOUT ME</div>
           <div className="text-xl font-bold hover:underline">POSTS</div>
           <div className="text-xl font-bold hover:underline">ALBUM</div>
           <div className="text-xl font-bold hover:underline">VLOGS</div>
-          <div className="text-xl font-bold hover:underline">PROJECTS</div>
+          <div className="text-xl font-bold hover:underline">PROJECTS</div> */}
+          <Link to="/" className="text-xl font-bold hover:underline">HOME</Link>
+          <Link to="/about" className="text-xl font-bold hover:underline">ABOUT ME</Link>
+          <Link to="/post" className="text-xl font-bold hover:underline">POSTS</Link>
+          <Link to="/album" className="text-xl font-bold hover:underline">ALBUM</Link>
+          <Link to="/vlog" className="text-xl font-bold hover:underline">VLOGS</Link>
+          <Link to="/project" className="text-xl font-bold hover:underline">PROJECTS</Link>
         </div>
         <div className="flex flex-row items-center space-x-6">
           <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:text-green-900 fa-solid fa-envelope"></i></a>
