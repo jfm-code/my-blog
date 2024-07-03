@@ -8,8 +8,7 @@ export const NavBar = () => {
           <div className="text-xl font-bold hover:underline">POSTS</div>
           <div className="text-xl font-bold hover:underline">ALBUM</div>
           <div className="text-xl font-bold hover:underline">VLOGS</div>
-          <div className="text-xl font-bold hover:underline">REVIEW</div>
-          <div className="text-xl font-bold hover:underline">CODING</div>
+          <div className="text-xl font-bold hover:underline">PROJECTS</div>
         </div>
         <div className="flex flex-row items-center space-x-6">
           <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:text-green-900 fa-solid fa-envelope"></i></a>
