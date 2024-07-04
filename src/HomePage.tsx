@@ -2,9 +2,9 @@ export const HomePage = () => {
   return (
     <div>
       <div className="flex flex-col items-center">
-        <img className="m-10 w-96" src="./blog-logo-green.svg"></img>
+        <p className="ml-14 mt-[-40px] text-[225px] font-fontAutography">j.f.m</p>
         <p className="text-xl">A personal blog. Created with discipline, wisdom and kindness.</p>
-        <img className="px-40 py-20" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"></img>
+        <img className="px-40 py-16" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"></img>
       </div>
       <div className="flex flex-row px-40 space-x-20">
         <div className="w-2/3">
@@ -63,7 +63,6 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-      
     </div>
   )
 };
