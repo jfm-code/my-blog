@@ -1,6 +1,6 @@
 export const Footer = () => {
     return (
-        <div className="flex flex-row bg-[#7c9e83] text-xl">
+        <div className="flex flex-row bg-[#7c9e83] text-xl text-[#7c9e83]">
             <div className="flex flex-col my-14 ml-60 mr-16 space-y-3">
                 <p className="text-white font-bold mb-2">SECTIONS</p>
                 <p className="text-white hover:underline">About me</p>

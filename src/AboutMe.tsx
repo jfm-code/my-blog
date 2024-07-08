@@ -3,7 +3,7 @@ import './styles/fonts.css';
 export const AboutMe = () => {
     return (
         <div>
-            <div className="flex flex-col items-center px-40 text-justify text-lg">
+            <div className="flex flex-col items-center px-40 text-justify text-lg text-[#7c9e83]">
                 <p className="text-8xl font-fontAutography py-10">a place to know</p>
                 <img className="size-80 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
                 <p className="py-10">

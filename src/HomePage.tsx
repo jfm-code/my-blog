@@ -1,6 +1,6 @@
 export const HomePage = () => {
   return (
-    <div>
+    <div className="text-[#7c9e83]">
       <div className="flex flex-col items-center">
         <p className="ml-14 mt-[-40px] text-[225px] font-fontAutography">j.f.m</p>
         <p className="text-xl">A personal blog. Created with discipline, wisdom and kindness.</p>
