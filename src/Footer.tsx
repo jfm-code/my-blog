@@ -21,9 +21,9 @@ export const Footer = () => {
                 <p className="text-white font-bold mb-2">ALBUM</p>
                 <p className="text-white hover:underline">Nha Trang 2024</p>
                 <p className="text-white hover:underline">Being Daisy</p>
-                <p className="text-white hover:underline">High School</p>
-                <p className="text-white hover:underline">University</p>
+                <p className="text-white hover:underline">LHP Graduation</p>
                 <p className="text-white hover:underline">Phan Thiet 2022</p>
+                <p className="text-white hover:underline">Da Lat 2021</p>
             </div>
             <form className="m-14 space-y-8">
                 <p className="text-white font-bold">SUBSCRIBE FOR EMAILS FROM JFM BLOG</p>

@@ -73,7 +73,7 @@ export const Post = () => {
                     </div>
                 </div>
                 <div className="w-5/6">
-                    <div className="grid grid-cols-3 gap-8">
+                    <div className="grid grid-cols-3 gap-10">
                         <div>
                             <img src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230"></img>
                             <p className="text-xl font-semibold mt-5 mb-2">Post title and link go here</p>

@@ -3,6 +3,7 @@ import { NavBar } from './NavBar';
 import { HomePage } from './HomePage';
 import { AboutMe } from './AboutMe';
 import { Post } from './Post';
+import { Album } from './Album';
 import { Footer } from './Footer';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/post" element={<Post />} />
+            <Route path="/album" element={<Album/>} />
           </Routes>
         </div>
         <Footer />
