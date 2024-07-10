@@ -3,6 +3,7 @@ import { NavBar } from './NavBar';
 import { HomePage } from './HomePage';
 import { AboutMe } from './AboutMe';
 import { Post } from './Post';
+import { ReadPost } from './ReadPost';
 import { Album } from './Album';
 import { Coding } from './Coding';
 import { Tutorial } from './Tutorial';
@@ -18,9 +19,10 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/post" element={<Post />} />
+            <Route path="/post/:postID" element={<ReadPost />} />
             <Route path="/album" element={<Album/>} />
             <Route path="/coding" element={<Coding/>} />
-            <Route path="/coding/:tutorialId" element={<Tutorial />} />
+            <Route path="/coding/:tutorialID" element={<Tutorial />} />
           </Routes>
         </div>
         <Footer />

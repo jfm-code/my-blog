@@ -1,7 +1,21 @@
 import './styles/fonts.css';
 import { Checkbox } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
+
 
 export const Post = () => {
+    const posts = [
+        { id: 'bus-experience', title: 'What I learned when sitting in the bus' },
+        { id: 'home-isnt-home', title: "When home isn't a safe place anymore" },
+        { id: 'feminine-energy', title: "What if I get hired because of my gender?" },
+    ];
+
+    const images: Record<string, string> = {
+        'bus-experience': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230',
+        'home-isnt-home': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8',
+        'feminine-energy': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'
+    };
+
     return (
         <div className="flex flex-col px-40 items-center text-justify text-lg text-[#7c9e83]">
             <p className="text-8xl font-fontAutography py-10">a place to write</p>
@@ -20,61 +34,72 @@ export const Post = () => {
                 <div className="flex flex-col w-1/6">
                     <p className="text-2xl font-semibold mb-2 ml-2">TOPICS</p>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="education" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="education" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="education" className="cursor-pointer text-lg">Education</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="work" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="work" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="work" className="cursor-pointer">Work</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="friendship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="friendship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="friendship" className="cursor-pointer">Friendship</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="family" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" />
+                        <Checkbox id="family" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} />
                         <label htmlFor="family" className="cursor-pointer">Family</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="relationship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="relationship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="relationship" className="cursor-pointer">Relationship</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="dream" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="dream" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="dream" className="cursor-pointer">Dream</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="psychology" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="psychology" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="psychology" className="cursor-pointer">Psychology</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="beauty" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="beauty" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="beauty" className="cursor-pointer">Beauty</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="personality" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="personality" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="personality" className="cursor-pointer">Personality</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="justice" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="justice" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="justice" className="cursor-pointer">Justice</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="mental" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="mental" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="mental" className="cursor-pointer">Mental Health</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="book" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="book" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="book" className="cursor-pointer">Book Review</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="yearend" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none"/>
+                        <Checkbox id="yearend" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="yearend" className="cursor-pointer">Year-End Review</label>
                     </div>
                 </div>
                 <div className="w-5/6">
                     <div className="grid grid-cols-3 gap-10">
-                        <div>
+                        {posts.map(post => (
+                        <div key={post.id}>
+                            <img className="" src={images[post.id]}/>
+                            <div className="mt-5 mb-1 text-xl font-semibold hover:underline">
+                                <Link to={`/post/${post.id}`}>{post.title}</Link>
+                            </div>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                        ))}
+                        {/* <div>
                             <img src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230"></img>
                             <p className="text-xl font-semibold mt-5 mb-2">Post title and link go here</p>
                             <p>
@@ -115,7 +140,7 @@ export const Post = () => {
                             <p>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                     
                 </div>
