@@ -10,7 +10,7 @@ export const NavBar = () => {
           <Link to="/post" className="text-xl font-bold hover:underline">POSTS</Link>
           <Link to="/album" className="text-xl font-bold hover:underline">ALBUM</Link>
           <Link to="/vlog" className="text-xl font-bold hover:underline">VLOGS</Link>
-          <Link to="/project" className="text-xl font-bold hover:underline">PROJECTS</Link>
+          <Link to="/coding" className="text-xl font-bold hover:underline">CODING</Link>
         </div>
         <div className="flex flex-row items-center space-x-6">
           <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:text-green-700 fa-solid fa-envelope"></i></a>

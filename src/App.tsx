@@ -4,6 +4,7 @@ import { HomePage } from './HomePage';
 import { AboutMe } from './AboutMe';
 import { Post } from './Post';
 import { Album } from './Album';
+import { Coding } from './Coding';
 import { Footer } from './Footer';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/about" element={<AboutMe />} />
             <Route path="/post" element={<Post />} />
             <Route path="/album" element={<Album/>} />
+            <Route path="/coding" element={<Coding/>} />
           </Routes>
         </div>
         <Footer />
