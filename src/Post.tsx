@@ -120,9 +120,6 @@ export const Post = () => {
                     
                 </div>
             </div>
-            
-            
-
         </div>
     )
 }

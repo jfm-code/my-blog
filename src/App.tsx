@@ -5,6 +5,7 @@ import { AboutMe } from './AboutMe';
 import { Post } from './Post';
 import { Album } from './Album';
 import { Coding } from './Coding';
+import { Tutorial } from './Tutorial';
 import { Footer } from './Footer';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/post" element={<Post />} />
             <Route path="/album" element={<Album/>} />
             <Route path="/coding" element={<Coding/>} />
+            <Route path="/coding/:tutorialId" element={<Tutorial />} />
           </Routes>
         </div>
         <Footer />
