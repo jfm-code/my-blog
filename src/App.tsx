@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { NavBar } from './NavBar';
 import { HomePage } from './HomePage';
 import { AboutMe } from './AboutMe';
-import { Post } from './Post';
+import { Post } from './Post'
 import { ReadPost } from './ReadPost';
 import { Album } from './Album';
 import { Coding } from './Coding';
