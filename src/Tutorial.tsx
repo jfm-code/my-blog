@@ -11,7 +11,7 @@ export const Tutorial = () => {
         'unit-test': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/htmls%2Funit-test.html?alt=media&token=de77daaf-19aa-4870-a828-ee77bfe27301',
         'converting-bits': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/pdfs%2FConverting_Bits.pdf?alt=media&token=6a0ce550-d9ac-4b80-9ada-04c623c12c88'
     };
-    const src = tutorialID && htmlLinks[tutorialID];
+    const src = tutorialID && htmlLinks[tutorialID]; 
 
     return (
         <iframe src={src} width="100%" height="700"></iframe>
