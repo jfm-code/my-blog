@@ -1,6 +1,6 @@
 export const Footer = () => {
     return (
-        <div className="flex flex-row bg-[#7c9e83] text-xl text-[#7c9e83]">
+        <div className="flex flex-row bg-primary text-xl text-primary">
             <div className="flex flex-col my-14 ml-60 mr-16 space-y-3">
                 <p className="text-white font-bold mb-2">SECTIONS</p>
                 <p className="text-white hover:underline">About me</p>
@@ -29,13 +29,13 @@ export const Footer = () => {
                 <p className="text-white font-bold">SUBSCRIBE FOR EMAILS FROM JFM BLOG</p>
                 <div className="space-y-1">
                     <p className="text-white">Full name</p>
-                    <input className="px-3 py-1 text-white w-80 bg-[#7c9e83] border border-white border-0 border-b outline-none focus:text-[#7c9e83] focus:bg-white focus:shadow-lg"></input>
+                    <input className="px-3 py-1 text-white w-80 bg-primary border border-white border-0 border-b outline-none focus:text-primary focus:bg-white focus:shadow-lg"></input>
                 </div>
                 <div className="space-y-1">
                     <p className="text-white">Email</p>
-                    <input className="px-3 py-1 text-white w-80 bg-[#7c9e83] border border-white border-0 border-b outline-none focus:text-[#7c9e83] focus:bg-white focus:shadow-lg"></input>
+                    <input className="px-3 py-1 text-white w-80 bg-primary border border-white border-0 border-b outline-none focus:text-primary focus:bg-white focus:shadow-lg"></input>
                 </div>
-                <input className="mt-10 p-2 w-24 text-lg text-white border border-white bg-[#7c9e83] hover:bg-white hover:text-[#7c9e83]" type="submit" value="Sign Up"></input>
+                <input className="mt-10 p-2 w-24 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary" type="submit" value="Sign Up"></input>
             </form>
         </div>
     )

@@ -17,7 +17,7 @@ export const Post = () => {
     };
 
     return (
-        <div className="flex flex-col px-40 items-center text-justify text-lg text-[#7c9e83]">
+        <div className="flex flex-col px-40 items-center text-justify text-lg text-primary">
             <p className="text-8xl font-fontAutography py-10">a place to write</p>
             <div className="flex flex-row space-x-16">
                 <img className="w-[600px] h-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/dalat-2021%2Fdalat-2021-1.JPG?alt=media&token=06767790-e40c-4c87-9d38-06618e011104"></img>
@@ -27,62 +27,62 @@ export const Post = () => {
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
-                    <input className="mt-5 mb-16 p-2 w-28 text-lg text-white border border-white bg-[#7c9e83] hover:bg-white hover:text-[#7c9e83] hover:border-[#7c9e83]" type="submit" value="Read more"></input>
+                    <input className="mt-5 mb-16 p-2 w-28 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
                 </div>
             </div>
             <div className="flex flex-row space-x-20 my-10">
                 <div className="flex flex-col w-1/6">
                     <p className="text-2xl font-semibold mb-2 ml-2">TOPICS</p>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="education" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="education" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="education" className="cursor-pointer text-lg">Education</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="work" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="work" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="work" className="cursor-pointer">Work</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="friendship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="friendship" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="friendship" className="cursor-pointer">Friendship</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="family" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} />
+                        <Checkbox id="family" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} />
                         <label htmlFor="family" className="cursor-pointer">Family</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="relationship" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="relationship" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="relationship" className="cursor-pointer">Relationship</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="dream" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="dream" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="dream" className="cursor-pointer">Dream</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="psychology" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="psychology" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="psychology" className="cursor-pointer">Psychology</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="beauty" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="beauty" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="beauty" className="cursor-pointer">Beauty</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="personality" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="personality" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="personality" className="cursor-pointer">Personality</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="justice" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="justice" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="justice" className="cursor-pointer">Justice</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="mental" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="mental" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="mental" className="cursor-pointer">Mental Health</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="book" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="book" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="book" className="cursor-pointer">Book Review</label>
                     </div>
                     <div className="flex items-center ml-8">
-                        <Checkbox id="yearend" className="w-6 h-6 rounded-none checked:bg-[#7c9e83] border border-[#7c9e83] border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                        <Checkbox id="yearend" className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                         <label htmlFor="yearend" className="cursor-pointer">Year-End Review</label>
                     </div>
                 </div>

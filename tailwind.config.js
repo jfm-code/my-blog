@@ -12,6 +12,11 @@ module.exports = withMT({
       fontFamily: {
         fontAutography: ['fontAutography', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: '#7c9e83',
+        primarylight: '#d3ddce',
+        primarydark: '#2b6f32'
+      },
     },
   },
   plugins: [],

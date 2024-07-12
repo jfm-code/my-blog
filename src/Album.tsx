@@ -1,6 +1,6 @@
 export const Album = () => {
     return (
-        <div className="flex flex-col px-40 text-justify text-lg text-[#7c9e83]">
+        <div className="flex flex-col px-40 text-justify text-lg text-primary">
             <p className="text-8xl self-center font-fontAutography py-10">a place to see</p>
             <div className="flex flex-row mb-24 items-center">
                 <div className="w-3/4 grid grid-cols-3 gap-8 items-center">
