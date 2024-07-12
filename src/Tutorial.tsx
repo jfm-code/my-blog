@@ -2,9 +2,16 @@ import { useParams } from 'react-router-dom';
 
 export const Tutorial = () => {
     const params = useParams<{ tutorialID: string }>();
-
     const { tutorialID } = params;
-    const src = tutorialID ? `/${tutorialID}.html` : '';
+
+    const htmlLinks: Record<string, string> = {
+        'intro-mips': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/htmls%2Fassembly-mips.html?alt=media&token=b9e17f1d-aea5-45ee-997d-9f0228c497b2',
+        'practice-mips': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/htmls%2Fmips-exercises.html?alt=media&token=fdb9f712-6a99-489e-b1d3-8ef308f7bf06',
+        'makefile': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/htmls%2Fmakefile.html?alt=media&token=c0ae386e-a0b4-45ec-b3ed-efa652a1e4f5',
+        'unit-test': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/htmls%2Funit-test.html?alt=media&token=de77daaf-19aa-4870-a828-ee77bfe27301',
+        'converting-bits': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/pdfs%2FConverting_Bits.pdf?alt=media&token=6a0ce550-d9ac-4b80-9ada-04c623c12c88'
+    };
+    const src = tutorialID && htmlLinks[tutorialID];
 
     return (
         <iframe src={src} width="100%" height="700"></iframe>
