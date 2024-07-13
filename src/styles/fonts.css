@@ -1,6 +1,13 @@
 @font-face {
-    font-family: 'fontAutography';
-    src: url('../assets/fonts/Autography.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'fontAutography';
+  src: url('../assets/fonts/Autography.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'fontCactus';
+  src: url('../assets/fonts/Cactus.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
