@@ -7,6 +7,7 @@ import { ReadPost } from './ReadPost';
 import { Album } from './Album';
 import { Coding } from './Coding';
 import { Tutorial } from './Tutorial';
+import { Video } from './Video';
 import { Footer } from './Footer';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/album" element={<Album/>} />
             <Route path="/coding" element={<Coding/>} />
             <Route path="/coding/:tutorialID" element={<Tutorial />} />
+            <Route path="/video" element={<Video/>} />
           </Routes>
         </div>
         <Footer />

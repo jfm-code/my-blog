@@ -2,7 +2,7 @@
 @import './styles/fonts.css';
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;  
 
 * {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

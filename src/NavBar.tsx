@@ -9,14 +9,14 @@ export const NavBar = () => {
           <Link to="/about" className="text-xl font-bold hover:underline hover:text-primarydark">ABOUT ME</Link>
           <Link to="/post" className="text-xl font-bold hover:underline hover:text-primarydark">POSTS</Link>
           <Link to="/album" className="text-xl font-bold hover:underline hover:text-primarydark">ALBUM</Link>
-          <Link to="/vlog" className="text-xl font-bold hover:underline hover:text-primarydark">VLOGS</Link>
+          <Link to="/video" className="text-xl font-bold hover:underline hover:text-primarydark">VIDEOS</Link>
           <Link to="/coding" className="text-xl font-bold hover:underline hover:text-primarydark">CODING</Link>
         </div>
         <div className="flex flex-row items-center space-x-6">
           <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-solid fa-envelope"></i></a>
           <a href="https://www.facebook.com/giangmy.04/"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/jfm_blog/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/my-giang-vu/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-linkedin-in"></i></a>
           <a href="https://github.com/jfm-code"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-github"></i></a>
           <form className="w-72">   
               <div className="relative">
