@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
   return (
-    <nav className="px-20 py-10 text-primary">
+    <nav className="2xl:px-20 md:px-14 py-10 text-primary relative">
       <div className="flex items-center justify-between">
-        <div className="flex flex-row space-x-10">
+        <div className="hidden md:flex md:flex-row md:space-x-5 lg:space-x-10">
           <Link to="/" className="text-xl font-bold hover:underline hover:text-primarydark">HOME</Link>
           <Link to="/about" className="text-xl font-bold hover:underline hover:text-primarydark">ABOUT ME</Link>
           <Link to="/post" className="text-xl font-bold hover:underline hover:text-primarydark">POSTS</Link>
@@ -12,7 +12,7 @@ export const NavBar = () => {
           <Link to="/video" className="text-xl font-bold hover:underline hover:text-primarydark">VIDEOS</Link>
           <Link to="/coding" className="text-xl font-bold hover:underline hover:text-primarydark">CODING</Link>
         </div>
-        <div className="flex flex-row items-center space-x-6">
+        <div className="hidden md:pl-10 sm:pl-[700px] sm:flex sm:flex-row sm:items-center sm:space-x-6">
           <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-solid fa-envelope"></i></a>
           <a href="https://www.facebook.com/giangmy.04/"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/jfm_blog/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-instagram"></i></a>
