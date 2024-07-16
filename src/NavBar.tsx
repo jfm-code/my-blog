@@ -47,12 +47,12 @@ export const NavBar = () => {
           </div>
           {isOpenDropdown && <div id="navbar-hamburger" className="custom_md:hidden w-full ml-2">
             <div onClick={()=> handleOpenDropdown()} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
-              <Link to="/"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">HOME</Link>
-              <Link to="/about"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">ABOUT ME</Link>
-              <Link to="/post"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">POSTS</Link>
-              <Link to="/album"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">ALBUM</Link>
-              <Link to="/video"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">VIDEOS</Link>
-              <Link to="/coding" className="block py-2 px-3 text-primary hover:text-white hover:bg-primary rounded">CODING</Link>
+              <Link to="/"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">HOME</Link>
+              <Link to="/about"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ABOUT ME</Link>
+              <Link to="/post"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">POSTS</Link>
+              <Link to="/album"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ALBUM</Link>
+              <Link to="/video"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">VIDEOS</Link>
+              <Link to="/coding" className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">CODING</Link>
             </div>
           </div>}
         </div>
