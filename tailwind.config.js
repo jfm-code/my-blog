@@ -10,12 +10,12 @@ module.exports = withMT({
   theme: {
     extend: {
       screens: {
-        xs: '100px',
-        sm: '480px',
-        nm: '620px',
-        md: '970px',
-        lg: '1220px',
-        xl: '1490px',
+        custom_xs: '100px',
+        custom_sm: '480px',
+        custom_nm: '620px',
+        custom_md: '970px',
+        custom_lg: '1220px',
+        custom_xl: '1490px',
       },
       fontFamily: {
         fontAutography: ['fontAutography', ...defaultTheme.fontFamily.sans],

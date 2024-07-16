@@ -2,15 +2,15 @@ export const HomePage = () => {
   return (
     <div className="text-primary">
       <div className="flex flex-col items-center">
-        <p className="ml-14 mb-5 mt-[-40px] sm:mt-0 sm:mb-14 sm:text-[225px] text-9xl font-fontAutography">j.f.m</p>
-        <p className="sm:text-xl mt-5 sm:mt-0">A personal blog<span className="hidden nm:inline">. Created with discipline, wisdom and kindness.</span></p>
-        <img className="px-5 sm:px-10 md:px-20 xl:px-40 pt-8 sm:pt-10 md:py-16" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"></img>
+        <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[225px] text-9xl font-fontAutography">j.f.m</p>
+        <p className="sm:text-xl mt-5 custom_sm:mt-0">A personal blog<span className="hidden custom_nm:inline">. Created with discipline, wisdom and kindness.</span></p>
+        <img className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 pt-8 custom_sm:pt-10 custom_md:py-16" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"></img>
       </div>
-      <div className="flex flex-row px-5 sm:px-10 md:px-20 xl:px-40 py-8 md:py-10 space-x-10 xl:space-x-20">
-        <div className="w-full md:w-2/3">
+      <div className="flex flex-row px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 py-8 custom_md:py-10 space-x-10 custom_xl:space-x-20">
+        <div className="w-full custom_md:w-2/3">
           <div className="flex flex-col items-center">
             <p className="sm:text-xl font-medium">JULY 14, 2023</p>
-            <p className="text-2xl nm:text-3xl nm:mt-3 mb-4 nm:mb-7 font-bold text-primarydark">Post title goes here</p>
+            <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">Post title goes here</p>
             <img className="w-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8"></img>
             <p className="text-lg text-justify mt-7">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -20,7 +20,7 @@ export const HomePage = () => {
           </div>
           <div className="flex flex-col items-center">
             <p className="sm:text-xl font-medium">JULY 14, 2023</p>
-            <p className="text-2xl nm:text-3xl nm:mt-3 mb-4 nm:mb-7 font-bold text-primarydark">Post title goes here</p>
+            <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">Post title goes here</p>
             <img className="w-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-2.jpg?alt=media&token=d7da3be7-7221-4f21-8dcb-9aef2a219073"></img>
             <p className="text-lg text-justify mt-7">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -29,10 +29,10 @@ export const HomePage = () => {
             <input className="mt-5 mb-16 p-2 w-28 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
           </div>
         </div>
-        <div className="hidden md:block w-1/3 flex flex-col text-lg text-justify">
-          <div className="flex flex-col items-center bg-red-100">
+        <div className="hidden custom_md:block w-1/3 flex flex-col text-lg text-justify">
+          <div className="flex flex-col items-center">
             <p className="text-3xl font-bold text-primarydark">About me</p>
-            <img className="m-10 md:p-5 xl:p-0 xl:size-96 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
+            <img className="m-10 custom_md:p-5 custom_xl:p-0 custom_xl:size-96 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
