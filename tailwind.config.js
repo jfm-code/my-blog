@@ -12,6 +12,7 @@ module.exports = withMT({
       screens: {
         xs: '100px',
         sm: '480px',
+        nm: '620px',
         md: '970px',
         lg: '1220px',
         xl: '1490px',

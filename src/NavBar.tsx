@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const NavBar = () => {
   return (
     <nav className="w-full xl:px-20 md:px-10 px-5 py-10 text-primary relative">
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex items-center md:justify-between">
         <div className="hidden md:flex md:flex-row md:space-x-5 xl:space-x-10">
           <Link to="/" className="text-xl font-bold hover:underline hover:text-primarydark">HOME</Link>
           <Link to="/about" className="text-xl font-bold hover:underline hover:text-primarydark">ABOUT ME</Link>
@@ -12,7 +12,7 @@ export const NavBar = () => {
           <Link to="/video" className="text-xl font-bold hover:underline hover:text-primarydark">VIDEOS</Link>
           <Link to="/coding" className="text-xl font-bold hover:underline hover:text-primarydark">CODING</Link>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center w-full md:w-fit justify-between">
           <div className="hidden lg:pl-10 lg:flex lg:flex-row lg:items-center lg:space-x-2 xl:space-x-6">
             <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-solid fa-envelope"></i></a>
             <a href="https://www.facebook.com/giangmy.04/"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-facebook-f"></i></a>
@@ -26,7 +26,7 @@ export const NavBar = () => {
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
             </svg>
           </button>
-          <form className="w-72 xl:ml-10 lg:ml-5 ml-2 hidden sm:block">   
+          <form className="w-72 xl:ml-10 lg:ml-5 hidden sm:block">   
               <div className="relative">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
                       <svg className="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
