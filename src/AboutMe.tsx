@@ -29,7 +29,7 @@ export const AboutMe = () => {
                     </div>
                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                         <div className="flex justify-center mb-2 font-bold italic text-xl">2019 - 2020</div>
-                        <div className="font-bold text-left text-primarydark text-xl">Valedictorian, Science & Engineering Competition</div>
+                        <div className="flex font-bold text-left text-primarydark text-xl">Valedictorian, Science & Engineering Competition</div>
                         <div className="text-left">
                             - Valedictorian of a city-level French competition.
                             <br></br>
