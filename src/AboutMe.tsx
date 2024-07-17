@@ -3,7 +3,7 @@ import './styles/fonts.css';
 export const AboutMe = () => {
     return (
         <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography py-10">a place to know</p>
+            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to know</p>
             <img className="size-64 custom_sm:size-80 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
             <p className="py-10 px-0 custom_sm:px-2 custom_md:px-50 custom_xl:px-60">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

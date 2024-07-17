@@ -38,10 +38,10 @@ export const Coding = () => {
     };
 
     return (
-        <div className="flex flex-col items-center px-40 text-justify text-lg text-primary">
-            <p className="text-8xl font-fontAutography py-10">a place to learn</p>
-            <p className="self-start text-3xl font-semibold my-7">Assembly Programming Language</p>
-            <div className="grid grid-cols-4 gap-14 mb-10">
+        <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
+            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to learn</p>
+            <p className="self-start text-2xl text-primarydark custom_lg:text-3xl font-semibold my-7">Assembly Programming Language</p>
+            <div className="grid grid-cols-1 custom_nm:grid-cols-2 custom_md:grid-cols-3 custom_xl:grid-cols-4 gap-10 custom_md:gap-14 mb-10">
                 {assembly_tutorials.map(tutorial => (
                     <div key={tutorial.id}>
                         <img className="bg-red-100" src={assembly_images[tutorial.id]}/>
@@ -54,8 +54,8 @@ export const Coding = () => {
                     </div>
                 ))}
             </div>
-            <p className="self-start text-3xl font-semibold my-7">C++ Programming Language</p>
-            <div className="grid grid-cols-4 gap-14 mb-10">
+            <p className="self-start text-primarydark text-2xl custom_lg:text-3xl font-semibold my-7">C++ Programming Language</p>
+            <div className="grid grid-cols-1 custom_nm:grid-cols-2 custom_md:grid-cols-3 custom_xl:grid-cols-4 gap-10 custom_md:gap-14 mb-10">
                 {cplusplus_tutorials.map(tutorial => (
                     <div key={tutorial.id}>
                         <img src={cplusplus_images[tutorial.id]}/>
@@ -68,8 +68,8 @@ export const Coding = () => {
                     </div>
                 ))}
             </div>
-            <p className="self-start text-3xl font-semibold my-7">C Programming Language</p>
-            <div className="grid grid-cols-4 gap-14 mb-10">
+            <p className="self-start text-primarydark text-2xl custom_lg:text-3xl font-semibold my-7">C Programming Language</p>
+            <div className="grid grid-cols-1 custom_nm:grid-cols-2 custom_md:grid-cols-3 custom_xl:grid-cols-4 gap-10 custom_md:gap-14 mb-10">
                 {c_tutorials.map(tutorial => (
                     <div key={tutorial.id}>
                         <img src={c_images[tutorial.id]}/>
