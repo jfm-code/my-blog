@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { db } from './FirebaseConfig'
-import { collection, getDocs } from "firebase/firestore";
-import { NavbarElementObjet } from './interfaces';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { NavigationObject } from './interfaces';
 
 export const NavBar = () => {
-  
+
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [navbarContent, setnavbarContent] = useState<NavbarElementObjet[]>([])
+  const [navbarContent, setnavbarContent] = useState<NavigationObject | null>(null)
 
   const handleOpenDropdown = () => {
     setIsOpenDropdown(!isOpenDropdown);
@@ -29,26 +29,27 @@ export const NavBar = () => {
     };
 
     const fetchNavbar = async () => {
-      const querySnapshot = await getDocs(collection(db, "navbar"));
-      let navbarInfo: NavbarElementObjet[] = [];
-      
-      querySnapshot.forEach((doc) => {
-        navbarInfo.push(doc.data() as NavbarElementObjet);
-      });
+      const q = query(collection(db, "navigation"), where("name", "==", "sections"));
+      const querySnapshot = await getDocs(q);
+      let navbarInfo: NavigationObject | null = null;
+
+      if (!querySnapshot.empty) {
+        navbarInfo = querySnapshot.docs[0].data() as NavigationObject;
+      }
       setnavbarContent(navbarInfo);
     }
-    
-    navbarResponsive()
-    fetchNavbar()
+
+    navbarResponsive();
+    fetchNavbar();
   }, []);
 
   return (
     <nav className="w-full custom_xl:px-20 custom_md:px-10 px-5 py-10 text-primary relative">
       <div className="w-full flex items-center custom_md:justify-between">
         <div className="hidden custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
-          {navbarContent.map(element => (
+          {navbarContent && navbarContent.list.map(element => (
             <p className="group relative w-max">
-              <Link to={element.path} className="text-xl font-bold hover:text-primarydark">{element.name}</Link>
+              <Link to={element.path} className="uppercase text-xl font-bold hover:text-primarydark">{element.name}</Link>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </p>
@@ -83,7 +84,7 @@ export const NavBar = () => {
           {isOpenDropdown && (
             <div ref={dropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full ml-2">
               <div onClick={handleOpenDropdown} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
-                {navbarContent.map(element => (
+                {navbarContent && navbarContent.list.map(element => (
                   <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{element.name}</Link>
                 ))}
               </div>

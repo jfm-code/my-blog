@@ -1,6 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { db } from './FirebaseConfig'
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { NavigationObject } from './interfaces';
 
 export const Footer = () => {
+
+    const [footerContent, setfooterContent] = useState<NavigationObject[]>([]);
+
+    useEffect(() => {
+        const fetchFooterData = async () => {
+            const querySnapshot = await getDocs(collection(db, "navigation"));
+            const footerData: NavigationObject[] = [];
+            querySnapshot.forEach((doc) => {
+                footerData.push(doc.data() as NavigationObject);
+            })
+            setfooterContent(footerData);
+        }
+        fetchFooterData();
+    }, []);
 
     const content = [
         {
@@ -27,20 +45,20 @@ export const Footer = () => {
             header:'ALBUM',
             content_list: [
                 { name:'Nha Trang 2024', path:'/'},
-                { name:'Being Daisy', path:'/'},
-                { name:'LHP Graduation', path:'/'},
+                { name:'Being Daisy', path:'/album/being-daisy'},
+                { name:'LHP Graduation', path:'/album/lhp-graduation'},
                 { name:'Phan Thiet 2022', path:'/'},
-                { name:'Da Lat 2021', path:'/'}
+                { name:'Da Lat 2021', path:'/album/dalat-2021'}
             ]
         }
     ]
 
     return (
         <div className="flex flex-row justify-around bg-primary text-lg custom_sm:text-xl text-primary px-5 custom_md:px-20 custom_xl:px-40">
-            {content.map(section => (
+            {footerContent.map(section => (
                 <div className="flex flex-col my-8 custom_lg:my-14 space-y-3 hidden custom_nm:block">
-                    <p className="text-white font-bold mb-2">{section.header}</p>
-                    {section.content_list.map(line => (
+                    <p className="text-white font-bold mb-2 uppercase">{section.name}</p>
+                    {section.list.map(line => (
                         <p className="group relative w-max">
                             <Link to={line.path} className="text-white">{line.name}</Link>
                             <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>

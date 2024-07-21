@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
 export interface TutorialObject {
     name: string;
     list: [{
@@ -47,4 +45,12 @@ export interface TopicObject {
 export interface NavbarElementObjet {
     name: string,
     path: string,
-  }
+}
+
+export interface NavigationObject {
+    name: string,
+    list: [{
+        name: string,
+        path: string,
+    }]
+}

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { db, storage } from './FirebaseConfig'
+import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { ref, getDownloadURL } from "firebase/storage";
 import { PostObject } from './interfaces'
 
 export const SinglePost = () => {
@@ -27,16 +26,6 @@ export const SinglePost = () => {
                 if (!querySnapshot.empty) {
                     postData = querySnapshot.docs[0].data() as PostObject;
 
-                    // Get the content from the txt file
-                    // const filePath = postData.content; // Use the path from Firestore
-                    // if (filePath) {
-                    //     const fileRef = ref(storage, filePath);
-                    //     const url = await getDownloadURL(fileRef);
-                    //     const response = await fetch(url);
-                    //     const text = await response.text();
-                    //     setPostContent(text);
-                    //     console.log(postContent);
-                    // }
                     const url = postData.content; // Use the link from Firestore
                     if (url) {
                         const response = await fetch(url);
