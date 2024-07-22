@@ -1,12 +1,26 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const NavBar = () => {
-  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleOpenDropdown = () => {
-    setIsOpenDropdown(!isOpenDropdown)
-  }
+    setIsOpenDropdown(!isOpenDropdown);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpenDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="w-full custom_xl:px-20 custom_md:px-10 px-5 py-10 text-primary relative">
@@ -28,7 +42,7 @@ export const NavBar = () => {
               <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-linkedin-in"></i></a>
               <a href="https://github.com/jfm-code"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-github"></i></a>
             </div>
-            <button onClick={()=> handleOpenDropdown()} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-lg hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
+            <button onClick={handleOpenDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-lg hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -45,18 +59,19 @@ export const NavBar = () => {
                 </div>
             </form>
           </div>
-          {isOpenDropdown && <div id="navbar-hamburger" className="custom_md:hidden w-full ml-2">
-            <div onClick={()=> handleOpenDropdown()} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
-              <Link to="/"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">HOME</Link>
-              <Link to="/about"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ABOUT ME</Link>
-              <Link to="/post"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">POSTS</Link>
-              <Link to="/album"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ALBUM</Link>
-              <Link to="/video"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">VIDEOS</Link>
-              <Link to="/coding" className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">CODING</Link>
+          {isOpenDropdown && (
+            <div ref={dropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full ml-2">
+              <div onClick={handleOpenDropdown} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
+                <Link to="/"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">HOME</Link>
+                <Link to="/about"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ABOUT ME</Link>
+                <Link to="/post"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">POSTS</Link>
+                <Link to="/album"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">ALBUM</Link>
+                <Link to="/video"  className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">VIDEOS</Link>
+                <Link to="/coding" className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">CODING</Link>
+              </div>
             </div>
-          </div>}
+          )}
         </div>
-        
       </div>
     </nav>
   );

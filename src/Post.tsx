@@ -42,7 +42,7 @@ export const Post = () => {
                     <p className="my-2">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
-                    <input className="mt-5 mb-10 p-2 w-28 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
+                    <input className="mt-5 mb-10 p-2 w-28 text-lg border border-white text-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
                 </div>
             </div>
             <div className="w-full flex flex-col flex-auto mb-10 custom_lg:flex-row custom_lg:space-x-20 custom_lg:my-10">
@@ -58,11 +58,11 @@ export const Post = () => {
                 </div>
                 </div>
                 <div className="flex self-center w-full custom_nm:w-11/12 custom_lg:w-5/6">
-                    <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-10">
+                    <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-5">
                         {posts.map(post => (
-                        <div key={post.id}>
+                        <div className="group p-5 hover:bg-primarylight/70" key={post.id}>
                             <img className="" src={images[post.id]}/>
-                            <div className="mt-5 mb-1 text-xl font-semibold hover:underline">
+                            <div className="mt-5 mb-1 text-xl font-semibold group-hover:text-primarydark group-hover:underline">
                                 <Link to={`/post/${post.id}`}>{post.title}</Link>
                             </div>
                             <p>
