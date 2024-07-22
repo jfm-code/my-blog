@@ -1,10 +1,26 @@
+import { Carousel } from "@material-tailwind/react";
+
 export const HomePage = () => {
+  const images = [
+    { link:"https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-10.jpg?alt=media&token=2ccb1dba-3c0b-4bbe-8e53-f7650763bbe3"},
+    { link:"https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"},
+    { link:"https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/intern%2Fintern-1.jpg?alt=media&token=d09f8911-6835-4e72-8b83-dd5fdd27c473"},
+    { link:"https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/sapa-2022%2Fsapa-1.jpg?alt=media&token=e96470ae-c122-4e68-bb79-02773bba0779"}
+  ]
   return (
     <div className="text-primary">
       <div className="flex flex-col items-center">
         <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[225px] text-9xl font-fontAutography">j.f.m</p>
         <p className="sm:text-xl mt-5 custom_sm:mt-0">A personal blog<span className="hidden custom_nm:inline">. Created with discipline, wisdom and kindness.</span></p>
-        <img className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 pt-8 custom_sm:pt-10 custom_md:py-16" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-1.jpg?alt=media&token=eac6b9d0-65ed-409d-9742-f74a98ee123d"></img>
+        <div className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 pt-8 custom_sm:pt-10 custom_md:py-16">
+          <Carousel transition={{ duration: 1 }} className="w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            {images.map(image => (
+              <img src={image.link} alt="" className="h-full w-full object-cover"
+            />))}
+          </Carousel>
+        </div>
+        
+
       </div>
       <div className="flex flex-row px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 py-8 custom_md:py-10 space-x-10 custom_xl:space-x-20">
         <div className="w-full custom_md:w-2/3">
