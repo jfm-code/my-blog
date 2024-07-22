@@ -36,16 +36,16 @@ export const Coding = () => {
                     <p className="self-start text-2xl text-primarydark custom_lg:text-3xl font-semibold my-7">{prog_language.name}</p>
                     <div className="grid grid-cols-1 custom_nm:grid-cols-2 custom_md:grid-cols-3 custom_xl:grid-cols-4 gap-5 custom_md:gap-8 mb-10">
                         {prog_language.list.map(tutorial => (
-                            <div className="group hover:bg-primarylight/70 p-2 custom_nm:p-5" key={tutorial.id}>
-                                <img className="bg-red-100" src={tutorial.image_link}/>
+                            <Link to={`/coding/${tutorial.id}`} className="group hover:bg-primarylight/70 p-2 custom_nm:p-5" key={tutorial.id}>
+                                <img src={tutorial.image_link}/>
                                 <div className="group relative w-max my-3 text-xl font-semibold group-hover:text-primarydark">
-                                    <Link to={`/coding/${tutorial.id}`}>{tutorial.title}</Link>
+                                    <span>{tutorial.title}</span>
                                     <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                                 </div>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                                 </p>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

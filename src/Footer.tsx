@@ -39,7 +39,10 @@ export const Footer = () => {
                 <div className="flex flex-col my-8 custom_lg:my-14 space-y-3 hidden custom_nm:block">
                     <p className="text-white font-bold mb-2">{section.header}</p>
                     {section.content_list.map(line => (
-                        <p className="text-white hover:underline">{line.name}</p>
+                        <p className="group relative w-max">
+                            <span className="text-white">{line.name}</span>
+                            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
+                        </p>
                     ))}
                 </div>
             ))}
