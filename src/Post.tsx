@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 export const Post = () => {
     const posts = [
-        { id: 'bus-experience', title: 'What I learned when sitting in the bus' },
-        { id: 'home-isnt-home', title: "When home isn't a safe place anymore" },
-        { id: 'feminine-energy', title: "What if I get hired because of my gender?" },
+        { id: 'bus-experience', title: 'What I learned when sitting in the bus', image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230'},
+        { id: 'home-isnt-home', title: "When home isn't a safe place anymore", image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8'},
+        { id: 'feminine-energy', title: "Get hired because of my gender?", image_link:'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'},
     ];
 
     const topics = [
@@ -25,12 +25,6 @@ export const Post = () => {
         { name: 'Book Review'},
         { name: 'Year-End Review'}
     ]
-
-    const images: Record<string, string> = {
-        'bus-experience': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230',
-        'home-isnt-home': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8',
-        'feminine-energy': 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'
-    };
 
     return (
         <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
@@ -61,9 +55,10 @@ export const Post = () => {
                     <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-5">
                         {posts.map(post => (
                         <div className="group p-5 hover:bg-primarylight/70" key={post.id}>
-                            <img className="" src={images[post.id]}/>
-                            <div className="mt-5 mb-1 text-xl font-semibold group-hover:text-primarydark group-hover:underline">
-                                <Link to={`/post/${post.id}`}>{post.title}</Link>
+                            <img src={post.image_link}/>
+                            <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
+                                <Link className="" to={`/post/${post.id}`}>{post.title}</Link>
+                                <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
                             <p>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.

@@ -38,8 +38,9 @@ export const Coding = () => {
                         {prog_language.list.map(tutorial => (
                             <div className="group hover:bg-primarylight/70 p-2 custom_nm:p-5" key={tutorial.id}>
                                 <img className="bg-red-100" src={tutorial.image_link}/>
-                                <div className="mt-5 mb-1 text-xl font-semibold group-hover:text-primarydark group-hover:underline">
+                                <div className="group relative w-max my-3 text-xl font-semibold group-hover:text-primarydark">
                                     <Link to={`/coding/${tutorial.id}`}>{tutorial.title}</Link>
+                                    <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                                 </div>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.

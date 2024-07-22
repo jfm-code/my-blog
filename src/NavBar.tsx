@@ -2,6 +2,14 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 export const NavBar = () => {
+  const navbarContent = [
+    { name:'HOME', path:'/'},
+    { name:'ABOUT ME', path:'/about'},
+    { name:'POSTS', path:'/post'},
+    { name:'ALBUM', path:'/album'},
+    { name:'VIDEOS', path:'/video'},
+    { name:'CODING', path:'/coding'}
+  ]
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -26,12 +34,13 @@ export const NavBar = () => {
     <nav className="w-full custom_xl:px-20 custom_md:px-10 px-5 py-10 text-primary relative">
       <div className="w-full flex items-center custom_md:justify-between">
         <div className="hidden custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
-          <Link to="/" className="text-xl font-bold hover:underline hover:text-primarydark">HOME</Link>
-          <Link to="/about" className="text-xl font-bold hover:underline hover:text-primarydark">ABOUT ME</Link>
-          <Link to="/post" className="text-xl font-bold hover:underline hover:text-primarydark">POSTS</Link>
-          <Link to="/album" className="text-xl font-bold hover:underline hover:text-primarydark">ALBUM</Link>
-          <Link to="/video" className="text-xl font-bold hover:underline hover:text-primarydark">VIDEOS</Link>
-          <Link to="/coding" className="text-xl font-bold hover:underline hover:text-primarydark">CODING</Link>
+          {navbarContent.map(element => (
+            <p className="group relative w-max">
+              <Link to={element.path} className="text-xl font-bold hover:text-primarydark">{element.name}</Link>
+              <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+            </p>
+          ))}
         </div>
         <div className="w-full custom_md:w-fit flex flex-col">
           <div className="flex flex-row items-center w-full custom_md:w-fit justify-between">

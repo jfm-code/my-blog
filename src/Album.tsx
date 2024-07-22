@@ -12,7 +12,11 @@ export const Album = () => {
                     <img src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/dalat-2021%2Fdalat-2021-4.JPG?alt=media&token=6ba4148d-7c47-4714-a696-e746d46733dc"></img>
                 </div>
                 <div className="custom_lg:w-1/4 flex flex-col items-center mb-5 custom_lg:mb-0 custom_lg:ml-14">
-                    <p className="group-hover:text-primarydark group-hover:underline text-3xl custom_nm:text-4xl font-semibold mb-5">DA LAT TRIP</p>
+                    <p className="group relative w-max mb-5">
+                        <p className="group-hover:text-primarydark text-3xl custom_nm:text-4xl font-semibold">DA LAT TRIP</p>
+                        <span className="absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                        <span className="absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                    </p>
                     <p className="text-2xl mb-5">Spring 2021</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
@@ -28,7 +32,11 @@ export const Album = () => {
                     <img src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/lhp-graduation%2Flhp-graduation-5.jpg?alt=media&token=eca34d41-9329-41a0-a0a7-5389a2ee48ad"></img>
                 </div>
                 <div className="custom_lg:w-1/4 flex flex-col items-center mb-5 custom_lg:mb-0 custom_lg:mr-14">
-                    <p className="group-hover:text-primarydark group-hover:underline text-3xl custom_nm:text-4xl font-semibold mb-5">LHP GRADUATION</p>
+                    <p className="group relative w-max mb-5">
+                        <p className="group-hover:text-primarydark text-3xl custom_nm:text-4xl font-semibold">LHP GRADUATION</p>
+                        <span className="absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                        <span className="absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                    </p>
                     <p className="text-2xl mb-5">Summer 2022</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
@@ -44,7 +52,11 @@ export const Album = () => {
                     <img src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-4.jpg?alt=media&token=b0d35860-8705-4e79-8e00-53b93d5fd157"></img>
                 </div>
                 <div className="custom_lg:w-1/4 flex flex-col items-center mb-5 custom_lg:mb-0 custom_lg:ml-14">
-                    <p className="group-hover:text-primarydark group-hover:underline text-3xl custom_nm:text-4xl font-semibold mb-5">BEING DAISY</p>
+                    <p className="group relative w-max mb-5">
+                        <p className="group-hover:text-primarydark text-3xl custom_nm:text-4xl font-semibold">BEING DAISY</p>
+                        <span className="absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                        <span className="absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+                    </p>
                     <p className="text-2xl mb-5">Summer 2024</p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
