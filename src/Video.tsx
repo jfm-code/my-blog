@@ -23,7 +23,7 @@ export const Video = () => {
                     </div>
                 </a>
             </div>
-            
+
             <p className="text-2xl custom_md:text-4xl font-bold mt-20">OTHER VIDEOS <span className="hidden custom_nm:inline">ON MY YOUTUBE CHANNEL</span></p>
             <p className="group relative w-max mt-5">
                 <a className="text-xl group-hover:text-primarydark" href="https://www.youtube.com/@jfm-channel">Click here to go to my channel</a>
