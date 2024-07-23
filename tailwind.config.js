@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
 const withMT = require("@material-tailwind/react/utils/withMT");
+const franken = require('franken-ui/shadcn-ui/preset-quick');
 
 module.exports = withMT({
+  presets: [franken()],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    {
+      pattern: /^uk-/
+    }
   ],
   theme: {
     extend: {
@@ -18,6 +25,9 @@ module.exports = withMT({
         custom_xl: '1490px',
       },
       fontFamily: {
+        sans: [...defaultTheme.fontFamily.sans],
+        serif: [...defaultTheme.fontFamily.serif],
+        mono: [...defaultTheme.fontFamily.mono],
         fontAutography: ['fontAutography', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -28,4 +38,4 @@ module.exports = withMT({
     },
   },
   plugins: [],
-})
+});

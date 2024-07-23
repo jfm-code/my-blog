@@ -1,4 +1,5 @@
 import { Carousel } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
   const images = [
@@ -22,7 +23,7 @@ export const HomePage = () => {
         
 
       </div>
-      <div className="flex flex-row px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 py-8 custom_md:py-10 space-x-10 custom_xl:space-x-20">
+      <div className="flex flex-row px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 py-8 custom_md:py-10 space-x-10 custom_xl:space-x-16">
         <div className="w-full custom_md:w-2/3">
           <div className="flex flex-col items-center">
             <p className="sm:text-xl font-medium">JULY 14, 2023</p>
@@ -45,36 +46,49 @@ export const HomePage = () => {
             <input className="mt-5 mb-16 p-2 w-28 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
           </div>
         </div>
-        <div className="hidden custom_md:block w-1/3 flex flex-col text-lg text-justify">
-          <div className="flex flex-col items-center">
-            <p className="text-3xl font-bold text-primarydark">About me</p>
+        <div className="hidden custom_md:block w-1/3 flex flex-col text-lg text-justify space-y-2">
+          <Link to="/about" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+            <div className="group relative w-max">
+              <p className="text-3xl font-bold text-primarydark">About me</p>
+              <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+            </div>
+            
             <img className="m-10 custom_md:p-5 custom_xl:p-0 custom_xl:size-96 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <p className="text-3xl font-bold mt-14 text-primarydark">My latest album</p>
-            <div className="grid grid-cols-2 gap-4 my-5">
+          </Link>
+          <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+            <div className="group relative w-max">
+              <p className="text-3xl font-bold text-primarydark">My latest album</p>
+              <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-8 mb-4">
               <img className="" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-3.jpg?alt=media&token=922c27ee-deb4-4050-90d7-1b4be6c670d1"></img>
               <img className="" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-4.jpg?alt=media&token=b0d35860-8705-4e79-8e00-53b93d5fd157"></img>
               <img className="" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-5.jpg?alt=media&token=06de1a81-39f5-4a7d-8c36-e83d45668912"></img>
               <img className="" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-6.jpg?alt=media&token=64739d60-e1cf-4541-a106-61b0812344d5"></img>
             </div>
-            <p className="text-xl font-medium">Album name and link goes here</p>
+            <p className="group-hover:text-primarydark group-hover:font-bold text-xl font-semibold">BEING DAISY</p>
             <p className="my-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <p className="text-3xl font-bold mt-14 text-primarydark">My latest vlog</p>
-            <iframe className="py-5 w-full aspect-video" src="https://www.youtube.com/embed/lTSffczhgGw?si=hnRkzAW_BDyDxzIq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+          </Link>
+          <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+            <div className="group relative w-max">
+              <p className="text-3xl font-bold text-primarydark">My latest vlog</p>
+              <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+            </div>
+            <iframe className="pt-8 pb-4 w-full aspect-video" src="https://www.youtube.com/embed/lTSffczhgGw?si=hnRkzAW_BDyDxzIq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
-            <p className="text-xl font-medium">Vlog name and link goes here</p>
+            <p className="group-hover:text-primarydark group-hover:font-bold text-xl font-semibold">SECOND YEAR IN THE US</p>
             <p className="my-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
