@@ -9,6 +9,7 @@ import { Coding } from './Coding';
 import { Tutorial } from './Tutorial';
 import { Video } from './Video';
 import { Footer } from './Footer';
+import { ScrollToTop } from "./ScrollToTop";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/coding/:tutorialID" element={<Tutorial />} />
             <Route path="/video" element={<Video/>} />
           </Routes>
+          <ScrollToTop />
         </div>
         <Footer />
       </div>
