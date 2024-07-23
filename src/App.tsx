@@ -5,6 +5,7 @@ import { AboutMe } from './AboutMe';
 import { Post } from './Post'
 import { ReadPost } from './ReadPost';
 import { Album } from './Album';
+import { Picture } from './Picture';
 import { Coding } from './Coding';
 import { Tutorial } from './Tutorial';
 import { Video } from './Video';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/post" element={<Post />} />
             <Route path="/post/:postID" element={<ReadPost />} />
             <Route path="/album" element={<Album/>} />
+            <Route path="/album/:albumID" element={<Picture />} />
             <Route path="/coding" element={<Coding/>} />
             <Route path="/coding/:tutorialID" element={<Tutorial />} />
             <Route path="/video" element={<Video/>} />
