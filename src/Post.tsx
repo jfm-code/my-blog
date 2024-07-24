@@ -54,16 +54,16 @@ export const Post = () => {
                 <div className="flex self-center w-full custom_nm:w-11/12 custom_lg:w-5/6">
                     <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-5">
                         {posts.map(post => (
-                        <div className="group p-5 hover:bg-primarylight/70" key={post.id}>
+                        <Link to={`/post/${post.id}`} className="group p-5 hover:bg-primarylight/70" key={post.id}>
                             <img src={post.image_link}/>
                             <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                                <Link className="" to={`/post/${post.id}`}>{post.title}</Link>
+                                <span>{post.title}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
                             <p>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                             </p>
-                        </div>
+                        </Link>
                         ))}
                     </div>
                     

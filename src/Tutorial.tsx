@@ -18,6 +18,6 @@ export const Tutorial = () => {
     const src = tutorialID && htmlLinks[tutorialID]; 
 
     return (
-        <iframe className="px-40" src={src} width="100%" height="700"></iframe>
+        <iframe className="px-40 py-10" src={src} width="100%" height="800"></iframe>
     );
 }

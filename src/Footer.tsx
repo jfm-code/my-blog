@@ -1,34 +1,36 @@
+import { Link } from 'react-router-dom';
+
 export const Footer = () => {
 
     const content = [
         {
             header:'SECTIONS',
             content_list: [
-                { name:'About me'},
-                { name:'Posts'},
-                { name:'Album'},
-                { name:'Vlogs'},
-                { name:'Projects'}
+                { name:'About me', path:'/about'},
+                { name:'Posts', path:'/post'},
+                { name:'Album', path:'/album'},
+                { name:'Videos', path:'/video'},
+                { name:'Coding', path:'/coding'}
             ]
         },
         {
             header:'TOPICS',
             content_list: [
-                { name:'Education'},
-                { name:'Work'},
-                { name:'Friendship'},
-                { name:'Family'},
-                { name:'Mental Health'}
+                { name:'Education', path:'/'},
+                { name:'Work', path:'/'},
+                { name:'Friendship', path:'/'},
+                { name:'Family', path:'/'},
+                { name:'Mental Health', path:'/'}
             ]
         },
         {
             header:'ALBUM',
             content_list: [
-                { name:'Nha Trang 2024'},
-                { name:'Being Daisy'},
-                { name:'LHP Graduation'},
-                { name:'Phan Thiet 2022'},
-                { name:'Da Lat 2021'}
+                { name:'Nha Trang 2024', path:'/'},
+                { name:'Being Daisy', path:'/'},
+                { name:'LHP Graduation', path:'/'},
+                { name:'Phan Thiet 2022', path:'/'},
+                { name:'Da Lat 2021', path:'/'}
             ]
         }
     ]
@@ -40,7 +42,7 @@ export const Footer = () => {
                     <p className="text-white font-bold mb-2">{section.header}</p>
                     {section.content_list.map(line => (
                         <p className="group relative w-max">
-                            <span className="text-white">{line.name}</span>
+                            <Link to={line.path} className="text-white">{line.name}</Link>
                             <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
                         </p>
                     ))}

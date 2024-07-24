@@ -3,7 +3,7 @@ import { NavBar } from './NavBar';
 import { HomePage } from './HomePage';
 import { AboutMe } from './AboutMe';
 import { Post } from './Post'
-import { ReadPost } from './ReadPost';
+import { SinglePost } from './SinglePost';
 import { Album } from './Album';
 import { Picture } from './Picture';
 import { Coding } from './Coding';
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/post" element={<Post />} />
-            <Route path="/post/:postID" element={<ReadPost />} />
+            <Route path="/post/:postID" element={<SinglePost />} />
             <Route path="/album" element={<Album/>} />
             <Route path="/album/:albumID" element={<Picture />} />
             <Route path="/coding" element={<Coding/>} />
