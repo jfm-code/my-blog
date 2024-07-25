@@ -3,14 +3,16 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore"; 
 
+interface PictureObject {
+    style: string;
+    link: string;
+}
+
 interface Albums {
-    name: string,
-    time: string,
-    path: string,
-    images: [{
-        style: string,
-        link: string,
-    }]
+    name: string;
+    time: string;
+    path: string;
+    images: (PictureObject | string)[];
 }
 
 export const Album = () => {
@@ -40,7 +42,7 @@ export const Album = () => {
             {albums.map(album => (
                 <Link to={`/album/${album.path}`} key={album.path} className="group hover:bg-primarylight/70 hover:border hover:shadow-md p-8 w-full flex flex-col-reverse custom_lg:flex-row custom_lg:odd:flex-row-reverse space-x-14 odd:space-x-reverse mb-14 items-center">
                     <div className="custom_lg:w-3/4 grid grid-cols-1 custom_sm:grid-cols-2 custom_lg:grid-cols-3 gap-y-8 custom_sm:gap-8 items-center">
-                        {album.images.map(image => (
+                        {album.images.filter((image): image is PictureObject => typeof image !== 'string').map(image => (
                             <img className={image.style} src={image.link}></img>
                         ))}
                     </div>
