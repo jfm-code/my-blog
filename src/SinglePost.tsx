@@ -18,28 +18,25 @@ export const SinglePost = () => {
     ];
 
     return (
-        <div className=" mx-80 my-10 flex flex-col text-primary items-center text-lg space-y-8">
-            <div className="px-40 space-y-5">
+        <div className="mx-0 custom_nm:mx-10 custom_md:mx-20 custom_lg:mx-40 custom_xl:mx-60 my-10 flex flex-col text-primary items-center text-lg space-y-8">
+            <div className="px-10 custom_lg:px-40 custom_xl:px-60 space-y-5">
                 <div className=" w-full flex self-center">
                     <div className="w-max relative">
-                        <p className="">TOPIC NAME</p>
+                        <p className="font-semibold">TOPIC NAME</p>
                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
                     </div>
                 </div>
-                <p className="w-full  flex self-center text-5xl font-semibold">What I learned while taking the bus</p>
+                <p className="w-full  flex self-center text-4xl custom_md:text-5xl font-semibold">What I learned while taking the bus</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
                     <p className="">July 16, 2019</p><span>|</span>
                     <p className="">3 minutes read</p>
                 </div>
                 <img className="" src='https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230'></img>
             </div>
-            <p className="px-20 text-justify">
+            
+            <p className="px-10 custom_xl:px-40 text-justify">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-            <p className="px-20 text-justify">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -51,15 +48,15 @@ export const SinglePost = () => {
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
             
-            <div>
-                <div className="w-full px-20 flex self-center mb-2">
+            <div className="w-full">
+                <div className="w-full px-10 custom_lg:px-20 custom_xl:px-40 flex self-center mb-2">
                     <div className="w-max relative">
-                        <p className="">READ MORE POSTS ABOUT <span>TOPIC NAME</span></p>
+                        <p className="font-semibold">READ MORE POSTS ABOUT <span>TOPIC NAME</span></p>
                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
                     </div>
                 </div>
                     
-                <div className="w-full grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-2">
+                <div className="px-5 custom_nm:w-full grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-0">
                         {posts.map(post => (
                         <Link to={`/post/${post.id}`} className="group p-5 hover:bg-primarylight/70" key={post.id}>
                             <img src={post.image_link}/>
