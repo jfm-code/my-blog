@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
+import { db } from './FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore"; 
 
 interface Albums {
     name: string,
@@ -17,16 +18,20 @@ export const Album = () => {
     const [albums, setAlbums] = useState<Albums[]>([]);
 
     useEffect(() => {
-      const fetchAlbums = async () => {
-        try {
-          const response = await axios.get('http://localhost:5000/api/get-albums');
-          setAlbums(response.data);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-  
-      fetchAlbums();
+        const fetchAlbums = async () => {
+          try {
+            const querySnapshot = await getDocs(collection(db, "albums"));
+            const albumsData: Albums[] = [];
+            querySnapshot.forEach((doc) => {
+              albumsData.push(doc.data() as Albums);
+            });
+            setAlbums(albumsData);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchAlbums();
     }, []);
 
     return (

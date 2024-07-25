@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 export const Post = () => {
     const posts = [
-        { id: 'bus-experience', title: 'What I learned when sitting in the bus', image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230'},
-        { id: 'home-isnt-home', title: "When home isn't a safe place anymore", image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8'},
-        { id: 'feminine-energy', title: "Get hired because of my gender?", image_link:'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'},
+        { path: 'bus-experience', title: 'What I learned when sitting in the bus', image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230'},
+        { path: 'home-isnt-home', title: "When home isn't a safe place anymore", image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8'},
+        { path: 'feminine-energy', title: "What if I get hired because of my gender?", image_link:'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'},
     ];
 
     const topics = [
@@ -54,7 +54,7 @@ export const Post = () => {
                 <div className="flex self-center w-full custom_nm:w-11/12 custom_lg:w-5/6">
                     <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-5">
                         {posts.map(post => (
-                        <Link to={`/post/${post.id}`} className="group p-5 hover:bg-primarylight/70" key={post.id}>
+                        <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
                             <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
                                 <span>{post.title}</span>

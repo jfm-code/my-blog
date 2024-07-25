@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
+import { db } from './FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore";
 
 interface Tutorials {
     name: string;
@@ -15,16 +16,20 @@ export const Coding = () => {
     const [tutorials, setTutorials] = useState<Tutorials[]>([]);
 
     useEffect(() => {
-      const fetchTutorials = async () => {
-        try {
-          const response = await axios.get('http://localhost:5000/api/get-tutorials');
-          setTutorials(response.data);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-  
-      fetchTutorials();
+        const fetchAlbums = async () => {
+          try {
+            const querySnapshot = await getDocs(collection(db, "tutorials"));
+            const albumsData: Tutorials[] = [];
+            querySnapshot.forEach((doc) => {
+              albumsData.push(doc.data() as Tutorials);
+            });
+            setTutorials(albumsData);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchAlbums();
     }, []);
 
     return (
