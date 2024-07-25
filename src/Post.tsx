@@ -1,30 +1,51 @@
 import './styles/fonts.css';
 import { Checkbox } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { db } from './FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore";
 
+interface Topics {
+    name: string;
+}
 
-export const Post = () => {
-    const posts = [
-        { path: 'bus-experience', title: 'What I learned when sitting in the bus', image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-3.jpg?alt=media&token=3e861c8b-7396-4e59-8044-066e25748230'},
-        { path: 'home-isnt-home', title: "When home isn't a safe place anymore", image_link: 'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/high-school%2Fhighschool-1.jpg?alt=media&token=3c0f89db-9457-4d76-ba3b-e54b089e4ed8'},
-        { path: 'feminine-energy', title: "What if I get hired because of my gender?", image_link:'https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/middle-school%2Fmiddle-school-1.jpg?alt=media&token=506736c5-758a-4871-8e44-4f6542fdf6a8'},
-    ];
+interface Posts {
+    path: string,
+    title: string,
+    image_link: string,
+    tags: []
+}
 
-    const topics = [
-        { name: 'Education'},
-        { name: 'Work'},
-        { name: 'Friendship'},
-        { name: 'Family'},
-        { name: 'Relationship'},
-        { name: 'Dream'},
-        { name: 'Psychology'},
-        { name: 'Beauty'},
-        { name: 'Personality'},
-        { name: 'Justice'},
-        { name: 'Mental Health'},
-        { name: 'Book Review'},
-        { name: 'Year-End Review'}
-    ]
+export const Post = () => {  
+    const [topics, setTopics] = useState<Topics[]>([]);
+    const [posts, setPosts] = useState<Posts[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const querySnapshot1 = await getDocs(collection(db, "topics"));
+            const querySnapshot2 = await getDocs(collection(db, "posts"));
+
+            const albumsData: Topics[] = [];
+            const postsData: Posts[] = [];
+
+            querySnapshot1.forEach((doc) => {
+              albumsData.push(doc.data() as Topics);
+            });
+            setTopics(albumsData);
+
+            querySnapshot2.forEach((doc) => {
+                postsData.push(doc.data() as Posts);
+              });
+            setPosts(postsData);
+
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+    }, []);
 
     return (
         <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
