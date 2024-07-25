@@ -9,6 +9,7 @@ interface Tutorials {
         path: string;
         title: string;
         image_link: string;
+        embed_link: string;
     }];
 }
 
@@ -16,20 +17,20 @@ export const Coding = () => {
     const [tutorials, setTutorials] = useState<Tutorials[]>([]);
 
     useEffect(() => {
-        const fetchAlbums = async () => {
+        const fetchTutorials = async () => {
           try {
             const querySnapshot = await getDocs(collection(db, "tutorials"));
-            const albumsData: Tutorials[] = [];
+            const tutorialsData: Tutorials[] = [];
             querySnapshot.forEach((doc) => {
-              albumsData.push(doc.data() as Tutorials);
+              tutorialsData.push(doc.data() as Tutorials);
             });
-            setTutorials(albumsData);
+            setTutorials(tutorialsData);
           } catch (error) {
             console.error('Error fetching data:', error);
           }
         };
     
-        fetchAlbums();
+        fetchTutorials();
     }, []);
 
     return (

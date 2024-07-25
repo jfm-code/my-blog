@@ -49,7 +49,7 @@ export const Video = () => {
             {latestVideo && (
                 <div data-uk-lightbox className="group hover:bg-primarylight/70 p-5 custom_nm:p-8 custom_nm:mx-8 custom_md:mx-16 custom_lg:mx-40">
                     <a href={latestVideo.lightbox_link} data-caption={latestVideo.title} data-attrs="width: 1280; height: 720;">
-                        <iframe className="w-full aspect-video" src={latestVideo.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <iframe className="w-full aspect-video pointer-events-none custom_nm:pointer-events-auto" src={latestVideo.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                         <div className="flex flex-col">
                             <p className="group relative w-max mt-5 mb-3">
                                 <p className="group-hover:text-primarydark text-xl custom_nm:text-2xl font-bold">{latestVideo.title}</p>
