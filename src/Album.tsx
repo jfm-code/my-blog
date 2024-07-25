@@ -12,6 +12,7 @@ interface Albums {
     name: string;
     time: string;
     path: string;
+    latest_album: boolean;
     images: (PictureObject | string)[];
 }
 

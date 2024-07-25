@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 interface PictureObject {
     style: string;
@@ -12,30 +12,29 @@ interface Pictures {
     name: string;
     time: string;
     path: string;
+    latest_album: boolean;
     images: (PictureObject | string)[];
 }
 
 export const Picture = () => {
-    
     const params = useParams<{ albumID: string }>();
     const { albumID } = params;
 
-    const [ , setPictures] = useState<Pictures[]>([]);
     const [currentAlbum, setCurrentAlbum] = useState<Pictures | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const querySnapshot = await getDocs(collection(db, "albums"));
-            const albumsData: Pictures[] = [];
-            querySnapshot.forEach((doc) => {
-              albumsData.push(doc.data() as Pictures);
-            });
-            setPictures(albumsData);
+            const q = query(collection(db, "albums"), where("path", "==", albumID));
+            const currentAlbumSnapshot = await getDocs(q);
 
-            // Find the album with the matching path
-            const foundAlbum = albumsData.find(album => album.path === albumID);
-            setCurrentAlbum(foundAlbum || null);
+            let currentAlbumData: Pictures | null = null
+
+            if (!currentAlbumSnapshot.empty) {
+                currentAlbumData = currentAlbumSnapshot.docs[0].data() as Pictures;
+            }
+            setCurrentAlbum(currentAlbumData);
+
           } catch (error) {
             console.error('Error fetching data:', error);
           }
