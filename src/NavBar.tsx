@@ -2,17 +2,13 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
-
-interface navbarElement {
-  name: string,
-  path: string,
-}
+import { NavbarElementObjet } from './interfaces';
 
 export const NavBar = () => {
   
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [navbarContent, setnavbarContent] = useState<navbarElement[]>([])
+  const [navbarContent, setnavbarContent] = useState<NavbarElementObjet[]>([])
 
   const handleOpenDropdown = () => {
     setIsOpenDropdown(!isOpenDropdown);
@@ -34,10 +30,10 @@ export const NavBar = () => {
 
     const fetchNavbar = async () => {
       const querySnapshot = await getDocs(collection(db, "navbar"));
-      let navbarInfo: navbarElement[] = [];
+      let navbarInfo: NavbarElementObjet[] = [];
       
       querySnapshot.forEach((doc) => {
-        navbarInfo.push(doc.data() as navbarElement);
+        navbarInfo.push(doc.data() as NavbarElementObjet);
       });
       setnavbarContent(navbarInfo);
     }

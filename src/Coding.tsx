@@ -2,27 +2,18 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
-
-interface Tutorials {
-    name: string;
-    list: [{
-        path: string;
-        title: string;
-        image_link: string;
-        embed_link: string;
-    }];
-}
+import { TutorialObject } from './interfaces';
 
 export const Coding = () => {
-    const [tutorials, setTutorials] = useState<Tutorials[]>([]);
+    const [tutorials, setTutorials] = useState<TutorialObject[]>([]);
 
     useEffect(() => {
         const fetchTutorials = async () => {
           try {
             const querySnapshot = await getDocs(collection(db, "tutorials"));
-            const tutorialsData: Tutorials[] = [];
+            const tutorialsData: TutorialObject[] = [];
             querySnapshot.forEach((doc) => {
-              tutorialsData.push(doc.data() as Tutorials);
+              tutorialsData.push(doc.data() as TutorialObject);
             });
             setTutorials(tutorialsData);
           } catch (error) {

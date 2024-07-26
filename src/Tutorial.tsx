@@ -2,22 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
-
-interface Tutorials {
-    name: string;
-    list: {
-        path: string;
-        title: string;
-        image_link: string;
-        embed_link: string;
-    }[];
-}
+import { TutorialObject } from './interfaces';
 
 export const Tutorial = () => {
     const params = useParams<{ tutorialID: string }>();
     const { tutorialID } = params;
 
-    const [currentTutorial, setCurrentTutorial] = useState<Tutorials | null>(null);
+    const [currentTutorial, setCurrentTutorial] = useState<TutorialObject | null>(null);
 
     useEffect(() => {
         const fetchTutorials = async () => {
@@ -31,10 +22,10 @@ export const Tutorial = () => {
               return;
             }
 
-            let tutorialsData: Tutorials | null = null;
+            let tutorialsData: TutorialObject | null = null;
 
             querySnapshot.forEach(doc => {
-              const data = doc.data() as Tutorials;
+              const data = doc.data() as TutorialObject;
               if (data.list.some(item => item.path === tutorialID)) {
                 tutorialsData = data;
               }

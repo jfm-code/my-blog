@@ -4,21 +4,11 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
-
-interface Topics {
-    name: string;
-}
-
-interface Posts {
-    path: string,
-    title: string,
-    image_link: string,
-    tags: []
-}
+import { TopicObject, PostObject } from './interfaces';
 
 export const Post = () => {  
-    const [topics, setTopics] = useState<Topics[]>([]);
-    const [posts, setPosts] = useState<Posts[]>([]);
+    const [topics, setTopics] = useState<TopicObject[]>([]);
+    const [posts, setPosts] = useState<PostObject[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,16 +16,16 @@ export const Post = () => {
             const querySnapshot1 = await getDocs(collection(db, "topics"));
             const querySnapshot2 = await getDocs(collection(db, "posts"));
 
-            const albumsData: Topics[] = [];
-            const postsData: Posts[] = [];
+            const albumsData: TopicObject[] = [];
+            const postsData: PostObject[] = [];
 
             querySnapshot1.forEach((doc) => {
-              albumsData.push(doc.data() as Topics);
+              albumsData.push(doc.data() as TopicObject);
             });
             setTopics(albumsData);
 
             querySnapshot2.forEach((doc) => {
-                postsData.push(doc.data() as Posts);
+                postsData.push(doc.data() as PostObject);
               });
             setPosts(postsData);
 

@@ -1,18 +1,12 @@
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-
-interface Videos {
-    title: string,
-    embed_link: string,
-    lightbox_link: string,
-    latest_video: boolean,
-}
+import { VideoObject } from './interfaces';
 
 export const Video = () => { 
 
-    const [videos, setVideos] = useState<Videos[]>([]);
-    const [latestVideo, setLatestVideo] = useState<Videos | null>(null)
+    const [videos, setVideos] = useState<VideoObject[]>([]);
+    const [latestVideo, setLatestVideo] = useState<VideoObject | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,16 +16,16 @@ export const Video = () => {
             const q = query(collection(db, "videos"), where("latest_video", "==", true));
             const latestVideoSnapshot = await getDocs(q);
 
-            const videosData: Videos[] = [];
-            let latestVideoData: Videos | null = null;
+            const videosData: VideoObject[] = [];
+            let latestVideoData: VideoObject | null = null;
 
             querySnapshot1.forEach((doc) => {
-              videosData.push(doc.data() as Videos);
+              videosData.push(doc.data() as VideoObject);
             });
             setVideos(videosData);
 
             if (!latestVideoSnapshot.empty) {
-                latestVideoData = latestVideoSnapshot.docs[0].data() as Videos;
+                latestVideoData = latestVideoSnapshot.docs[0].data() as VideoObject;
             }
             setLatestVideo(latestVideoData);
 

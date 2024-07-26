@@ -1,32 +1,20 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
-import { collection, getDocs } from "firebase/firestore"; 
-
-interface PictureObject {
-    style: string;
-    link: string;
-}
-
-interface Albums {
-    name: string;
-    time: string;
-    path: string;
-    latest_album: boolean;
-    images: (PictureObject | string)[];
-}
+import { collection, getDocs } from "firebase/firestore";
+import { AlbumObject, PictureObject } from './interfaces';
 
 export const Album = () => {
 
-    const [albums, setAlbums] = useState<Albums[]>([]);
+    const [albums, setAlbums] = useState<AlbumObject[]>([]);
 
     useEffect(() => {
         const fetchAlbums = async () => {
           try {
             const querySnapshot = await getDocs(collection(db, "albums"));
-            const albumsData: Albums[] = [];
+            const albumsData: AlbumObject[] = [];
             querySnapshot.forEach((doc) => {
-              albumsData.push(doc.data() as Albums);
+              albumsData.push(doc.data() as AlbumObject);
             });
             setAlbums(albumsData);
           } catch (error) {
@@ -41,7 +29,7 @@ export const Album = () => {
         <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
             <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to see</p>
             {albums.map(album => (
-                <Link to={`/album/${album.path}`} key={album.path} className="group hover:bg-primarylight/70 hover:border hover:shadow-md p-8 w-full flex flex-col-reverse custom_lg:flex-row custom_lg:odd:flex-row-reverse space-x-14 odd:space-x-reverse mb-14 items-center">
+                <Link to={`/album/${album.path}`} key={album.path} className="group hover:bg-primarylight/70 hover:border hover:shadow-md p-8 w-full flex flex-col-reverse custom_lg:flex-row custom_lg:odd:flex-row-reverse custom_lg:space-x-14 odd:space-x-reverse mb-14 items-center">
                     <div className="custom_lg:w-3/4 grid grid-cols-1 custom_sm:grid-cols-2 custom_lg:grid-cols-3 gap-y-8 custom_sm:gap-8 items-center">
                         {album.images.filter((image): image is PictureObject => typeof image !== 'string').map(image => (
                             <img className={image.style} src={image.link}></img>

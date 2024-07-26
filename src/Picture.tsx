@@ -2,25 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig';
 import { collection, getDocs, query, where } from "firebase/firestore";
-
-interface PictureObject {
-    style: string;
-    link: string;
-}
-
-interface Pictures {
-    name: string;
-    time: string;
-    path: string;
-    latest_album: boolean;
-    images: (PictureObject | string)[];
-}
+import { AlbumObject } from './interfaces';
 
 export const Picture = () => {
     const params = useParams<{ albumID: string }>();
     const { albumID } = params;
 
-    const [currentAlbum, setCurrentAlbum] = useState<Pictures | null>(null);
+    const [currentAlbum, setCurrentAlbum] = useState<AlbumObject | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,10 +16,10 @@ export const Picture = () => {
             const q = query(collection(db, "albums"), where("path", "==", albumID));
             const currentAlbumSnapshot = await getDocs(q);
 
-            let currentAlbumData: Pictures | null = null
+            let currentAlbumData: AlbumObject | null = null
 
             if (!currentAlbumSnapshot.empty) {
-                currentAlbumData = currentAlbumSnapshot.docs[0].data() as Pictures;
+                currentAlbumData = currentAlbumSnapshot.docs[0].data() as AlbumObject;
             }
             setCurrentAlbum(currentAlbumData);
 

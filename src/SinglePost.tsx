@@ -3,42 +3,35 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-
-interface Post {
-    path: string,
-    title: string,
-    image_link: string,
-    tags: []
-}
+import { PostObject } from './interfaces'
 
 export const SinglePost = () => {
     const params = useParams<{ postID: string }>();
     const { postID } = params;
-
     
-    const [currentPost, setCurrentPost] = useState<Post | null>(null);
-    const [otherPost, setOtherPost] = useState<Post[]>([])
+    const [currentPost, setCurrentPost] = useState<PostObject | null>(null);
+    const [otherPost, setOtherPost] = useState<PostObject[]>([])
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
                 const q = query(collection(db, "posts"), where("path", "==", postID))
                 const querySnapshot = await getDocs(q);
-                let postData: Post | null = null;
+                let postData: PostObject | null = null;
 
                 const queryOtherSnapshot = await getDocs(collection(db, "posts"));
-                let allpostData: Post[] = [];
+                let allpostData: PostObject[] = [];
 
                 if (!querySnapshot.empty) {
-                    postData = querySnapshot.docs[0].data() as Post;
+                    postData = querySnapshot.docs[0].data() as PostObject;
                 }
                 setCurrentPost(postData);
 
                 queryOtherSnapshot.forEach((doc) => {
-                    allpostData.push(doc.data() as Post);
+                    allpostData.push(doc.data() as PostObject);
                 });
 
-                let selectedPostData: Post[] = [];
+                let selectedPostData: PostObject[] = [];
                 if (allpostData.length > 0) {
                     const randomIndexes = generateRandomIndexes(allpostData.length, 3);
                     selectedPostData = randomIndexes.map(index => allpostData[index]);
