@@ -16,6 +16,7 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.7.2",
     "contentful": "^10.12.8",
+    "cors": "^2.8.5",
     "firebase": "^10.12.4",
     "franken-ui": "^0.1.0",
     "franken-wc": "^0.0.2",

@@ -71,8 +71,9 @@ export const Post = () => {
                                 <span>{post.title}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
+                            <span className="italic">{post.date}</span>
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                {post.short_description}
                             </p>
                         </Link>
                         ))}

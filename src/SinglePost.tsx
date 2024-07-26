@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { db } from './FirebaseConfig'
+import { db, storage } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { ref, getDownloadURL } from "firebase/storage";
 import { PostObject } from './interfaces'
 
 export const SinglePost = () => {
@@ -10,7 +11,8 @@ export const SinglePost = () => {
     const { postID } = params;
     
     const [currentPost, setCurrentPost] = useState<PostObject | null>(null);
-    const [otherPost, setOtherPost] = useState<PostObject[]>([])
+    const [otherPost, setOtherPost] = useState<PostObject[]>([]);
+    const [postContent, setPostContent] = useState<string>("");
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -24,6 +26,24 @@ export const SinglePost = () => {
 
                 if (!querySnapshot.empty) {
                     postData = querySnapshot.docs[0].data() as PostObject;
+
+                    // Get the content from the txt file
+                    // const filePath = postData.content; // Use the path from Firestore
+                    // if (filePath) {
+                    //     const fileRef = ref(storage, filePath);
+                    //     const url = await getDownloadURL(fileRef);
+                    //     const response = await fetch(url);
+                    //     const text = await response.text();
+                    //     setPostContent(text);
+                    //     console.log(postContent);
+                    // }
+                    const url = postData.content; // Use the link from Firestore
+                    if (url) {
+                        const response = await fetch(url);
+                        const text = await response.text();
+                        setPostContent(text);
+                        console.log(postContent)
+                    }
                 }
                 setCurrentPost(postData);
 
@@ -37,6 +57,9 @@ export const SinglePost = () => {
                     selectedPostData = randomIndexes.map(index => allpostData[index]);
                 }
                 setOtherPost(selectedPostData)
+
+                
+
 
             } catch (error) {
                 console.log('Error fetching data:', error);
@@ -56,6 +79,8 @@ export const SinglePost = () => {
 
     const title = currentPost?.title
     const image_link = currentPost?.image_link
+    const created_date = currentPost?.date
+    // const content = currentPost?.content
     const current_topics = currentPost?.tags
 
     return (
@@ -74,25 +99,13 @@ export const SinglePost = () => {
                 </div>
                 <p className="w-full  flex self-center text-4xl custom_md:text-5xl font-semibold">{title}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
-                    <p className="">July 16, 2019</p><span>|</span>
+                    <p className="">{created_date}</p><span>|</span>
                     <p className="">3 minutes read</p>
                 </div>
                 <img className="w-full" src={image_link}></img>
             </div>
             
-            <p className="px-10 custom_xl:px-40 text-justify">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
+            <p className="px-10 custom_xl:px-40 text-justify whitespace-break-spaces">{postContent}</p>
             
             <div className="w-full">
                 <div className="w-full px-10 custom_lg:px-20 custom_xl:px-40 flex self-center mb-2">
@@ -102,19 +115,20 @@ export const SinglePost = () => {
                     </div>
                 </div>
                     
-                <div className="px-5 custom_nm:w-full grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-0">
-                        {otherPost.map(post => (
+                <div className="px-5 custom_xl:px-28 grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-0">
+                    {otherPost.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
                             <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
                                 <span>{post.title}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
+                            <span className="italic">{post.date}</span>
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                {post.short_description}
                             </p>
                         </Link>
-                        ))}
+                    ))}
                 </div>
             </div>
             

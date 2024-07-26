@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export interface TutorialObject {
     name: string;
     list: [{
@@ -32,6 +34,9 @@ export interface PostObject {
     path: string,
     title: string,
     image_link: string,
+    date: string,
+    short_description: string,
+    content: string,
     tags: []
 }
 
