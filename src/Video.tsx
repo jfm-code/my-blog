@@ -12,7 +12,7 @@ interface Videos {
 export const Video = () => { 
 
     const [videos, setVideos] = useState<Videos[]>([]);
-    const [latestVideo, setLatestVideo] = useState<Videos | null>(null);
+    const [latestVideo, setLatestVideo] = useState<Videos | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {

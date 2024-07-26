@@ -24,7 +24,6 @@ export const Tutorial = () => {
           try {
             console.log("Fetching data for tutorialID:", tutorialID);
             const querySnapshot = await getDocs(collection(db, "tutorials"));
-            
 
             if (querySnapshot.empty) {
               console.log("No documents found.");

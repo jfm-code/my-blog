@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { db } from './FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore";
+
+interface navbarElement {
+  name: string,
+  path: string,
+}
 
 export const NavBar = () => {
-  const navbarContent = [
-    { name:'HOME', path:'/'},
-    { name:'ABOUT ME', path:'/about'},
-    { name:'POSTS', path:'/post'},
-    { name:'ALBUM', path:'/album'},
-    { name:'VIDEOS', path:'/video'},
-    { name:'CODING', path:'/coding'}
-  ]
+  
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [navbarContent, setnavbarContent] = useState<navbarElement[]>([])
 
   const handleOpenDropdown = () => {
     setIsOpenDropdown(!isOpenDropdown);
@@ -24,10 +25,25 @@ export const NavBar = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+    const navbarResponsive = async () => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
     };
+
+    const fetchNavbar = async () => {
+      const querySnapshot = await getDocs(collection(db, "navbar"));
+      let navbarInfo: navbarElement[] = [];
+      
+      querySnapshot.forEach((doc) => {
+        navbarInfo.push(doc.data() as navbarElement);
+      });
+      setnavbarContent(navbarInfo);
+    }
+    
+    navbarResponsive()
+    fetchNavbar()
   }, []);
 
   return (
