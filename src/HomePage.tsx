@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { OnlyLinkObject, VideoObject, PostObject} from './interfaces'
+import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject} from './interfaces'
 
 export const HomePage = () => {
   const [carouselPic, setCarouselPic] = useState<OnlyLinkObject[]>([]);
@@ -11,6 +11,7 @@ export const HomePage = () => {
   const [latestVid, setLatestVid] = useState<VideoObject | null>(null);
   const [postContent, setPostContent] = useState<PostObject[]>([]);
   const [previewTexts, setPreviewTexts] = useState<string[]>([]);
+  const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +22,14 @@ export const HomePage = () => {
         carouselData.push(doc.data() as OnlyLinkObject);
       });
       setCarouselPic(carouselData);
+
+      //get data for about me section
+      const queryInfo = await getDocs(collection(db, "aboutme"));
+      let aboutmeData: AboutMeObject | null = null;
+      if (!queryInfo.empty) {
+          aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
+      }
+      setAboutMeInfo(aboutmeData);
 
       //get data for latest album
       const queryAlbum = await getDocs(collection(db, "latest-album"));
@@ -69,6 +78,7 @@ export const HomePage = () => {
   }, [])
 
   const latest_album_name = "BEING DAISY";
+  const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
 
   return (
     <div className="text-primary">
@@ -106,9 +116,9 @@ export const HomePage = () => {
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
             
-            <img className="m-10 custom_md:p-5 custom_xl:p-0 custom_xl:size-96 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
+            <img className="m-10 custom_md:p-5 custom_xl:p-0 custom_xl:size-96 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              {preview_about_me}
             </p>
           </Link>
           <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">

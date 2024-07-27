@@ -59,4 +59,9 @@ export interface AboutMeObject {
     overview_myself: string,
     overview_blog: string,
     blogpic_link: string,
+    timeline: [{
+        year: string,
+        summary: string,
+        details: string[],
+    }]
 }
