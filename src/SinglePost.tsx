@@ -38,7 +38,7 @@ export const SinglePost = () => {
 
                 queryOtherSnapshot.forEach((doc) => {
                     allpostData.push(doc.data() as PostObject);
-                });
+                }); 
 
                 let selectedPostData: PostObject[] = [];
                 if (allpostData.length > 0) {
@@ -47,15 +47,12 @@ export const SinglePost = () => {
                 }
                 setOtherPost(selectedPostData)
 
-                
-
-
             } catch (error) {
                 console.log('Error fetching data:', error);
             }
         };
 
-        fetchPost()
+        fetchPost();
     }, [postID]);
 
     const generateRandomIndexes = (arrLen: number, count: number) : number[] => {

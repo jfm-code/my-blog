@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { db } from './FirebaseConfig'
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { NavigationObject } from './interfaces';
 
 export const Footer = () => {
@@ -19,39 +19,6 @@ export const Footer = () => {
         }
         fetchFooterData();
     }, []);
-
-    const content = [
-        {
-            header:'SECTIONS',
-            content_list: [
-                { name:'About me', path:'/about'},
-                { name:'Posts', path:'/post'},
-                { name:'Album', path:'/album'},
-                { name:'Videos', path:'/video'},
-                { name:'Coding', path:'/coding'}
-            ]
-        },
-        {
-            header:'TOPICS',
-            content_list: [
-                { name:'Education', path:'/'},
-                { name:'Work', path:'/'},
-                { name:'Friendship', path:'/'},
-                { name:'Family', path:'/'},
-                { name:'Mental Health', path:'/'}
-            ]
-        },
-        {
-            header:'ALBUM',
-            content_list: [
-                { name:'Nha Trang 2024', path:'/'},
-                { name:'Being Daisy', path:'/album/being-daisy'},
-                { name:'LHP Graduation', path:'/album/lhp-graduation'},
-                { name:'Phan Thiet 2022', path:'/'},
-                { name:'Da Lat 2021', path:'/album/dalat-2021'}
-            ]
-        }
-    ]
 
     return (
         <div className="flex flex-row justify-around bg-primary text-lg custom_sm:text-xl text-primary px-5 custom_md:px-20 custom_xl:px-40">

@@ -42,15 +42,21 @@ export interface TopicObject {
     name: string;
 }
 
-export interface NavbarElementObjet {
-    name: string,
-    path: string,
-}
-
 export interface NavigationObject {
     name: string,
     list: [{
         name: string,
         path: string,
     }]
+}
+
+export interface OnlyLinkObject {
+    link: string
+}
+
+export interface AboutMeObject {
+    profilepic_link: string,
+    overview_myself: string,
+    overview_blog: string,
+    blogpic_link: string,
 }

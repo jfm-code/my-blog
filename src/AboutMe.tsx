@@ -1,24 +1,36 @@
 import './styles/fonts.css';
+import { useEffect, useState } from 'react';
+import { db } from './FirebaseConfig'
+import { collection, getDocs } from "firebase/firestore";
+import { AboutMeObject } from './interfaces';
 
 export const AboutMe = () => {
+
+    const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const queryInfo = await getDocs(collection(db, "aboutme"));
+            let aboutmeData: AboutMeObject | null = null;
+            if (!queryInfo.empty) {
+                aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
+            }
+            setAboutMeInfo(aboutmeData);
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
             <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to know</p>
-            <img className="size-64 custom_sm:size-80 rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/being-daisy%2Fdaisy-2.jpg?alt=media&token=2c749950-6edf-4b5e-823a-ee5aee1f4db1"></img>
-            <p className="py-10 px-0 custom_sm:px-2 custom_md:px-50 custom_xl:px-60">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+            <img className="size-64 custom_sm:size-80 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
+            <p className="py-10 px-0 custom_sm:px-2 custom_md:px-50 custom_xl:px-60">{aboutMeInfo?.overview_myself}</p>
             <p className="self-start text-2xl custom_nm:text-3xl font-bold text-primarydark">How this blog was born</p>
             <div className="w-full flex flex-col-reverse custom_lg:flex-row space-x-0 custom_lg:space-x-10 custom_xl:space-x-14 items-center">
-                <p className="py-10 custom_lg:w-3/4 px-0 custom_xl:px-14">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    <br></br>
-                    <br></br>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
+                <p className="py-10 custom_lg:w-3/4 px-0 custom_xl:px-14">{aboutMeInfo?.overview_blog}</p>
                 <div className="custom_lg:w-1/4 mt-10 custom_lg:mt-0">
-                    <img className="size-64 custom_sm:size-80 custom_lg:size-auto rounded-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/others%2Foldblogprofilepic.jpg?alt=media&token=2f0e297f-d8a1-41f3-8abf-a42348a88af7"></img>
+                    <img className="size-64 custom_sm:size-80 custom_lg:size-auto rounded-full" src={aboutMeInfo?.blogpic_link}></img>
                 </div>
             </div>
             <p className="self-start text-3xl font-bold text-primarydark mb-8">My life in a nutshell</p>
