@@ -35,7 +35,7 @@ export interface PostObject {
     date: string,
     short_description: string,
     content: string,
-    tags: []
+    tags: string[]
 }
 
 export interface TopicObject {
