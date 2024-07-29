@@ -14,65 +14,70 @@ export const HomePage = () => {
   const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
   
   useEffect(() => {
+
     const fetchData = async () => {
-      // get data for homepage carousel
-      const queryCarousel = await getDocs(collection(db, "carousel"));
-      const carouselData: OnlyLinkObject[] = [];
-      queryCarousel.forEach((doc) => {
-        carouselData.push(doc.data() as OnlyLinkObject);
-      });
-      setCarouselPic(carouselData);
+      try {
+        // Fetch carousel data
+        const queryCarousel = await getDocs(collection(db, "carousel"));
+        const carouselData: OnlyLinkObject[] = [];
+        queryCarousel.forEach((doc) => {
+          carouselData.push(doc.data() as OnlyLinkObject);
+        });
 
-      //get data for about me section
-      const queryInfo = await getDocs(collection(db, "aboutme"));
-      let aboutmeData: AboutMeObject | null = null;
-      if (!queryInfo.empty) {
+        // Fetch about me data
+        const queryInfo = await getDocs(collection(db, "aboutme"));
+        let aboutmeData: AboutMeObject | null = null;
+        if (!queryInfo.empty) {
           aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
-      }
-      setAboutMeInfo(aboutmeData);
-
-      //get data for latest album
-      const queryAlbum = await getDocs(collection(db, "latest-album"));
-      const albumData: OnlyLinkObject[] = [];
-      queryAlbum.forEach((doc) => {
-        albumData.push(doc.data() as OnlyLinkObject);
-      })
-      setAlbumPic(albumData);
-
-      //get data for latest video
-      const q = query(collection(db, "videos"), where("latest_video", "==", true));
-      const queryVideo = await getDocs(q);
-      let videoData: VideoObject | null = null;
-      if (!queryVideo.empty) {
-        videoData = queryVideo.docs[0].data() as VideoObject;
-      }
-      setLatestVid(videoData);
-
-      //get data for 2 latest posts
-      const queryPost = await getDocs(collection(db, "posts"));
-      const postData: PostObject[] = [];
-      queryPost.forEach((doc) => {
-        postData.push(doc.data() as PostObject);
-      })
-      const twoLatestPosts = postData.slice(-2);
-      setPostContent(twoLatestPosts);
-
-      //get text preview for the 2 latest posts
-      let textPreviews: string[] = [];
-      let text: string = "";
-      const fetchPreviews = twoLatestPosts.map(async (post) => {
-        const url = post.content;
-        if (url) {
-          const response = await fetch(url);
-          text = await response.text();
         }
-        text = text.split(" ").slice(0,150).join(" ");
-        textPreviews.push(text);
-      });
-      await Promise.all(fetchPreviews);
-      setPreviewTexts(textPreviews);
 
-    }
+        // Fetch latest album data
+        const queryAlbum = await getDocs(collection(db, "latest-album"));
+        const albumData: OnlyLinkObject[] = [];
+        queryAlbum.forEach((doc) => {
+          albumData.push(doc.data() as OnlyLinkObject);
+        });
+
+        // Fetch latest video data
+        const q = query(collection(db, "videos"), where("latest_video", "==", true));
+        const queryVideo = await getDocs(q);
+        let videoData: VideoObject | null = null;
+        if (!queryVideo.empty) {
+          videoData = queryVideo.docs[0].data() as VideoObject;
+        }
+
+        // Fetch 2 latest posts data
+        const queryPost = await getDocs(collection(db, "posts"));
+        const postData: PostObject[] = [];
+        queryPost.forEach((doc) => {
+          postData.push(doc.data() as PostObject);
+        });
+        const twoLatestPosts = postData.slice(-2);
+
+        // Fetch 2 text previews for the 2 latest posts
+        let textPreviews: string[] = [];
+        for (const post of twoLatestPosts) {
+          const url = post.content;
+          let text = "";
+          if (url) {
+            const response = await fetch(url);
+            text = await response.text();
+            text = text.split(" ").slice(0, 150).join(" ");
+          }
+          textPreviews.push(text);
+        }
+
+        // Update state with all fetched data
+        setCarouselPic(carouselData);
+        setAboutMeInfo(aboutmeData);
+        setAlbumPic(albumData);
+        setLatestVid(videoData);
+        setPostContent(twoLatestPosts);
+        setPreviewTexts(textPreviews);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
     fetchData()
   }, [])

@@ -57,6 +57,11 @@ export const NavBar = () => {
         </div>
         <div className="w-full custom_md:w-fit flex flex-col">
           <div className="flex flex-row items-center w-full custom_md:w-fit justify-between">
+
+            
+            
+
+
             <div className="hidden custom_lg:pl-10 custom_lg:flex custom_lg:flex-row custom_lg:items-center custom_lg:space-x-2 custom_xl:space-x-6">
               <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-solid fa-envelope"></i></a>
               <a href="https://www.facebook.com/giangmy.04/"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-facebook-f"></i></a>
@@ -64,6 +69,29 @@ export const NavBar = () => {
               <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-linkedin-in"></i></a>
               <a href="https://github.com/jfm-code"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-github"></i></a>
             </div>
+
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-lg ml-6 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-lg p-2 text-center inline-flex items-center" type="button">EN 
+            <svg className="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+            </button>
+            <div id="language-dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                  <li>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                  </li>
+                </ul>
+            </div>
+
             <button onClick={handleOpenDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-lg hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -80,6 +108,9 @@ export const NavBar = () => {
                     <input type="search" id="search" className="block w-full p-2 ps-10 text-lg text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder="Search" required />
                 </div>
             </form>
+
+            
+
           </div>
           {isOpenDropdown && (
             <div ref={dropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full ml-2">
