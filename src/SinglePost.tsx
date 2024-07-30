@@ -31,7 +31,6 @@ export const SinglePost = () => {
                         const response = await fetch(url);
                         const text = await response.text();
                         setPostContent(text);
-                        console.log(postContent)
                     }
                 }
                 setCurrentPost(postData);
