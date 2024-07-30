@@ -37,9 +37,9 @@ export interface PostObject {
     path: string,
     title: BilingualObject,
     image_link: string,
-    date: string,
-    short_description: string,
-    content: string,
+    date: BilingualObject,
+    short_description: BilingualObject,
+    content: BilingualObject,
     tags: string[]
 }
 

@@ -73,9 +73,9 @@ export const Post = () => {
                                 <span>{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
-                            <span className="italic">{post.date}</span>
+                            <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
-                                {post.short_description}
+                                {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}
                             </p>
                         </Link>
                         ))}

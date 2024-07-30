@@ -40,8 +40,8 @@ export const TopicPost = () => {
                             <span>{currentLanguage ==="EN" ? post.title.EN : post.title.VN}</span>
                             <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                         </div>
-                        <span className="italic">{post.date}</span>
-                        <p>{post.short_description}</p>
+                        <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
+                        <p>{currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}</p>
                     </Link>
                 ))}
             </div>

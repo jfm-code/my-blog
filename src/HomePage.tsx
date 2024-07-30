@@ -60,7 +60,7 @@ export const HomePage = () => {
         // Fetch 2 text previews for the 2 latest posts
         let textPreviews: string[] = [];
         for (const post of twoLatestPosts) {
-          const url = post.content;
+          const url = currentLanguage === "EN" ? post.content.EN : post.content.VN;
           let text = "";
           if (url) {
             const response = await fetch(url);
@@ -83,7 +83,7 @@ export const HomePage = () => {
     };
 
     fetchData()
-  }, [])
+  }, [currentLanguage])
 
   const latest_album_name = "BEING DAISY";
   const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
@@ -106,7 +106,7 @@ export const HomePage = () => {
         <div className="w-full custom_md:w-2/3">
           {postContent.map((post, index) => (
             <div className="flex flex-col items-center">
-              <p className="sm:text-xl font-medium uppercase">{post.date}</p>
+              <p className="sm:text-xl font-medium uppercase">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
               <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
               <img className="w-full" src={post.image_link}></img>
               <p className="text-lg text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>

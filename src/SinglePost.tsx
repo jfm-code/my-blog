@@ -27,12 +27,12 @@ export const SinglePost = () => {
 
                 if (!querySnapshot.empty) {
                     postData = querySnapshot.docs[0].data() as PostObject;
-
-                    const url = postData.content; // Use the link from Firestore
+                    let url = currentLanguage === "EN" ? postData.content.EN : postData.content.VN;
                     if (url) {
                         const response = await fetch(url);
                         const text = await response.text();
                         setPostContent(text);
+                        console.log("content babi", text)
                     }
                 }
                 setCurrentPost(postData);
@@ -54,7 +54,7 @@ export const SinglePost = () => {
         };
 
         fetchPost();
-    }, [postID]);
+    }, [postID, currentLanguage]);
 
     const generateRandomIndexes = (arrLen: number, count: number) : number[] => {
         const indexes = new Set<number>()
@@ -65,8 +65,6 @@ export const SinglePost = () => {
     };
 
     const image_link = currentPost?.image_link
-    const created_date = currentPost?.date
-    // const content = currentPost?.content
     const current_topics = currentPost?.tags
 
     return (
@@ -85,7 +83,7 @@ export const SinglePost = () => {
                 </div>
                 <p className="w-full  flex self-center text-4xl custom_md:text-5xl font-semibold">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
-                    <p className="">{created_date}</p><span>|</span>
+                    <p className="">{currentLanguage === "EN" ? currentPost?.date.EN : currentPost?.date.VN}</p><span>|</span>
                     <p className="">3 minutes read</p>
                 </div>
                 <img className="w-full" src={image_link}></img>
@@ -109,9 +107,9 @@ export const SinglePost = () => {
                                 <span>{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
-                            <span className="italic">{post.date}</span>
+                            <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
-                                {post.short_description}
+                                {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}
                             </p>
                         </Link>
                     ))}
