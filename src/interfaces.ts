@@ -1,3 +1,8 @@
+interface BilingualObject {
+    EN: string,
+    VN: string
+}
+
 export interface TutorialObject {
     name: string;
     list: [{
@@ -14,8 +19,8 @@ export interface PictureObject {
 }
 
 export interface AlbumObject {
-    name: string;
-    time: string;
+    name: BilingualObject;
+    time: BilingualObject;
     path: string;
     latest_album: boolean;
     images: (PictureObject | string)[];
@@ -30,7 +35,7 @@ export interface VideoObject {
 
 export interface PostObject {
     path: string,
-    title: string,
+    title: BilingualObject,
     image_link: string,
     date: string,
     short_description: string,
@@ -39,7 +44,7 @@ export interface PostObject {
 }
 
 export interface TopicObject {
-    name: string;
+    name: BilingualObject;
 }
 
 export interface NavigationObject {

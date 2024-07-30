@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject} from './interfaces'
+import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject} from './interfaces';
+import { useLanguage } from './LanguageContext';
+
 
 export const HomePage = () => {
   const [carouselPic, setCarouselPic] = useState<OnlyLinkObject[]>([]);
@@ -12,6 +14,7 @@ export const HomePage = () => {
   const [postContent, setPostContent] = useState<PostObject[]>([]);
   const [previewTexts, setPreviewTexts] = useState<string[]>([]);
   const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
+  const { currentLanguage } = useLanguage();
   
   useEffect(() => {
 
@@ -104,7 +107,7 @@ export const HomePage = () => {
           {postContent.map((post, index) => (
             <div className="flex flex-col items-center">
               <p className="sm:text-xl font-medium uppercase">{post.date}</p>
-              <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">{post.title}</p>
+              <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
               <img className="w-full" src={post.image_link}></img>
               <p className="text-lg text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
               <Link to={`/post/${post.path}`}>

@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig';
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { AlbumObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const Picture = () => {
     const params = useParams<{ albumID: string }>();
     const { albumID } = params;
+    const { currentLanguage } = useLanguage();
 
     const [currentAlbum, setCurrentAlbum] = useState<AlbumObject | null>(null);
 
@@ -30,17 +32,14 @@ export const Picture = () => {
 
         fetchData();
     }, [albumID]);
-
-    const header = currentAlbum?.name;
-    const time = currentAlbum?.time;
-
+    
     const remainders = [0, 1, 2, 3];
 
     return (
         <div data-uk-lightbox className="px-5 custom_nm:px-10 custom_md:px-20 custom_lg:px-40">
             <div className="flex flex-col items-center text-primary my-8 space-y-5">
-                <p className="text-4xl custom_nm:text-5xl font-semibold">{header}</p>
-                <p className="text-2xl">{time}</p>
+                <p className="text-4xl custom_nm:text-5xl font-semibold">{currentLanguage === "EN" ? currentAlbum?.name.EN : currentAlbum?.name.VN}</p>
+                <p className="text-2xl">{currentLanguage === "EN" ? currentAlbum?.time.EN : currentAlbum?.time.VN}</p>
             </div>
             <div className="grid grid-cols-1 custom_sm:grid-cols-2 custom_nm:grid-cols-3 custom_md:grid-cols-4 gap-8 items-start mb-14">
                 {remainders.map(remainder => (

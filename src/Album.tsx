@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
 import { AlbumObject, PictureObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const Album = () => {
 
     const [albums, setAlbums] = useState<AlbumObject[]>([]);
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         const fetchAlbums = async () => {
@@ -37,11 +39,11 @@ export const Album = () => {
                     </div>
                     <div className="custom_lg:w-1/4 flex flex-col items-center mb-5 custom_lg:mb-0">
                         <p className="group relative w-max mb-5">
-                            <p className="group-hover:text-primarydark text-3xl custom_nm:text-4xl font-semibold">{album.name}</p>
+                            <p className="group-hover:text-primarydark text-3xl custom_nm:text-4xl font-semibold">{currentLanguage === "EN" ? album.name.EN : album.name.VN}</p>
                             <span className="absolute -bottom-2 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
                             <span className="absolute -bottom-2 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
                         </p>
-                        <p className="text-2xl mb-5">{album.time}</p>
+                        <p className="text-2xl mb-5">{currentLanguage === "EN" ? album.time.EN : album.time.VN}</p>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         </p>
                     </div>

@@ -5,10 +5,12 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
 import { TopicObject, PostObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const Post = () => {  
     const [topics, setTopics] = useState<TopicObject[]>([]);
     const [posts, setPosts] = useState<PostObject[]>([]);
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,7 +59,7 @@ export const Post = () => {
                         {topics.map(topic => (
                             <div className="flex items-center ml-8 min-w-52">
                                 <Checkbox className="w-6 h-6 rounded-none checked:bg-primary border border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
-                                <label className="cursor-pointer text-lg">{topic.name}</label>
+                                <label className="cursor-pointer text-lg">{currentLanguage === "EN" ? topic.name.EN : topic.name.VN}</label>
                             </div>
                         ))}
                 </div>
@@ -68,7 +70,7 @@ export const Post = () => {
                         <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
                             <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                                <span>{post.title}</span>
+                                <span>{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
                             <span className="italic">{post.date}</span>

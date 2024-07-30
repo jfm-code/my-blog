@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { PostObject } from './interfaces'
+import { useLanguage } from './LanguageContext';
 
 export const SinglePost = () => {
     const params = useParams<{ postID: string }>();
     const { postID } = params;
+    const { currentLanguage } = useLanguage();
     
     const [currentPost, setCurrentPost] = useState<PostObject | null>(null);
     const [otherPost, setOtherPost] = useState<PostObject[]>([]);
@@ -62,7 +64,6 @@ export const SinglePost = () => {
         return Array.from(indexes);
     };
 
-    const title = currentPost?.title
     const image_link = currentPost?.image_link
     const created_date = currentPost?.date
     // const content = currentPost?.content
@@ -82,7 +83,7 @@ export const SinglePost = () => {
                         </div>
                     ))}
                 </div>
-                <p className="w-full  flex self-center text-4xl custom_md:text-5xl font-semibold">{title}</p>
+                <p className="w-full  flex self-center text-4xl custom_md:text-5xl font-semibold">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
                     <p className="">{created_date}</p><span>|</span>
                     <p className="">3 minutes read</p>
@@ -105,7 +106,7 @@ export const SinglePost = () => {
                         <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
                             <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                                <span>{post.title}</span>
+                                <span>{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </div>
                             <span className="italic">{post.date}</span>

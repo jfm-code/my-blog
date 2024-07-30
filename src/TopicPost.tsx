@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { PostObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const TopicPost = () => {
     const params = useParams<{ topicID: string }>();
     const { topicID } = params;
     const [TopicpostContent, setTopicpostContent] = useState<PostObject[]>([]);
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         const fetData = async () => {
@@ -35,7 +37,7 @@ export const TopicPost = () => {
                     <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70">
                         <img src={post.image_link}></img>
                         <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                            <span>{post.title}</span>
+                            <span>{currentLanguage ==="EN" ? post.title.EN : post.title.VN}</span>
                             <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                         </div>
                         <span className="italic">{post.date}</span>

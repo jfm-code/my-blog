@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { NavigationObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const NavBar = () => {
 
@@ -11,7 +12,7 @@ export const NavBar = () => {
   const [isOpenLanguageDropdown, setIsOpenLanguageDropdown] = useState(false);
   const languageDropdownRef = useRef<HTMLDivElement>(null);
   const [navbarContent, setnavbarContent] = useState<NavigationObject | null>(null);
-  const [currentLanguage, setCurrentLanguage] = useState<string>("EN");
+  const { currentLanguage, setCurrentLanguage } = useLanguage();
 
   const changeLanguage = () => {
     setCurrentLanguage(currentLanguage => currentLanguage === 'EN' ? 'VN' : 'EN');
