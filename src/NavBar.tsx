@@ -105,10 +105,10 @@ export const NavBar = () => {
                 </div>
             </form>
           </div>
-
+          
           {isOpenMenuDropdown && (
-            <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full px-2">
-              <div onClick={handleOpenMenuDropdown} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
+            <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full px-2 relative">
+              <div onClick={handleOpenMenuDropdown} className="absolute w-full flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
                 {navbarContent && navbarContent.list.map(element => (
                   <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{element.name}</Link>
                 ))}
@@ -117,8 +117,8 @@ export const NavBar = () => {
           )}
 
           {isOpenLanguageDropdown && (
-            <div ref={languageDropdownRef} id="navbar-language" className="w-fit px-2 self-end custom_md:self-start custom_lg:self-center">
-              <div onClick={handleOpenLanguageDropdown} className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 ">
+            <div ref={languageDropdownRef} id="navbar-language" className=" flex justify-end custom_lg:justify-center relative">
+              <div onClick={handleOpenLanguageDropdown} className="absolute min-w-36 flex flex-col justify-self-end font-medium mt-4 rounded-lg bg-gray-50 ">
                   <p onClick={changeLanguageToEN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary">English - EN</p>
                   <p onClick={changeLanguageToVN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary">Tiếng Việt - VN</p>
               </div>
