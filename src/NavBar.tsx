@@ -68,7 +68,7 @@ export const NavBar = () => {
         <div className="hidden mt-2 custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
           {navbarContent && navbarContent.list.map(element => (
             <p className="group relative w-max">
-              <Link to={element.path} className="uppercase text-xl font-bold hover:text-primarydark">{element.name}</Link>
+              <Link to={element.path} className="uppercase text-xl font-bold hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </p>
@@ -101,7 +101,7 @@ export const NavBar = () => {
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="search" id="search" className="block w-full p-2 ps-10 text-lg text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder="Search" required />
+                    <input type="search" id="search" className="block w-full p-2 ps-10 text-lg text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
                 </div>
             </form>
           </div>
@@ -110,7 +110,7 @@ export const NavBar = () => {
             <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full px-2 relative">
               <div onClick={handleOpenMenuDropdown} className="absolute w-full flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
                 {navbarContent && navbarContent.list.map(element => (
-                  <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{element.name}</Link>
+                  <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{currentLanguage === "EN" ? element.name.EN : element.name.VN}</Link>
                 ))}
               </div>
             </div>

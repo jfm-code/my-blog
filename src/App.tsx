@@ -35,8 +35,8 @@ function App() {
             </Routes>
             <ScrollToTop />
           </div>
+          <Footer />
         </LanguageProvider>
-        <Footer />
       </div>
     </Router>
   );

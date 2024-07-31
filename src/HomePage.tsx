@@ -92,7 +92,11 @@ export const HomePage = () => {
     <div className="text-primary">
       <div className="flex flex-col items-center">
         <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[225px] text-9xl font-fontAutography">j.f.m</p>
-        <p className="sm:text-xl mt-5 custom_sm:mt-0">A personal blog<span className="hidden custom_nm:inline">. Created with discipline, wisdom and kindness.</span></p>
+        <p className="sm:text-xl mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
+          <span className="hidden custom_nm:inline">
+            {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo ra bởi sự kỉ luật, trí tuệ và lòng tốt."}
+          </span>
+        </p>
         <div className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 pt-8 custom_sm:pt-10 custom_md:py-16">
           <Carousel transition={{ duration: 1 }} className="w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {carouselPic.map(image => (
@@ -119,7 +123,9 @@ export const HomePage = () => {
         <div className="hidden custom_md:block w-1/3 flex flex-col text-lg text-justify space-y-2">
           <Link to="/about" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">About me</p>
+              <p className="text-3xl font-bold text-primarydark">
+                {currentLanguage === "EN" ? "About me" : "Về bản thân mình"}
+                </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
@@ -131,7 +137,9 @@ export const HomePage = () => {
           </Link>
           <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">My latest album</p>
+              <p className="text-3xl font-bold text-primarydark">
+                {currentLanguage === "EN" ? "My latest album" : "Album mới nhất của mình"}
+                </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
@@ -147,7 +155,9 @@ export const HomePage = () => {
           </Link>
           <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">My latest vlog</p>
+              <p className="text-3xl font-bold text-primarydark">
+                {currentLanguage === "EN" ? "My latest video" : "Video mới nhất của mình"}
+                </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
