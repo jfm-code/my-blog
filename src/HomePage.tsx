@@ -89,7 +89,7 @@ export const HomePage = () => {
   const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
 
   return (
-    <div className="text-primary text-md">
+    <div className="container mx-auto px-0 custom_sm:px-10 custom_md:px-20 custom_lg:px-40">
       <div className="flex flex-col items-center">
         <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
         <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
@@ -97,7 +97,7 @@ export const HomePage = () => {
             {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo ra bởi sự kỉ luật, trí tuệ và lòng tốt."}
           </span>
         </p>
-        <div className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-72 pt-8 custom_sm:pt-10 custom_md:py-16">
+        <div className="pt-8 custom_md:pb-4">
           <Carousel transition={{ duration: 1 }} className="w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {carouselPic.map(image => (
               <img src={image.link} alt="" className="h-full w-full object-cover"
@@ -106,38 +106,38 @@ export const HomePage = () => {
         </div>
 
       </div>
-      <div className="flex flex-row px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 py-8 custom_md:py-10 space-x-10 custom_xl:space-x-16">
+      <div className="flex flex-row py-5 custom_md:py-10 space-x-10">
         <div className="w-full custom_md:w-2/3">
           {postContent.map((post, index) => (
             <div className="flex flex-col items-center">
-              <p className="font-medium uppercase">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
-              <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
+              <p className="font-medium uppercase pt-5">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
+              <p className="heading-2 py-4">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
               <img className="w-full" src={post.image_link}></img>
-              <p className="text-lg text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
+              <p className="text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
               <Link to={`/post/${post.path}`}>
-                <input className="mt-5 mb-16 p-2 w-28 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary" type="submit" value="Read more"></input>
+                <input className="green-btn" type="submit" value="Read more"></input>
               </Link>
             </div>
           ))}
         </div>
         <div className="hidden custom_md:block w-1/3 flex flex-col text-lg text-justify space-y-2">
-          <Link to="/about" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+          <Link to="/about" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">
+              <p className="heading-2">
                 {currentLanguage === "EN" ? "About me" : "Về bản thân mình"}
                 </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
             
-            <img className="m-10 custom_md:p-5 custom_xl:p-0 custom_xl:size-96 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
+            <img className="m-5 custom_md:p-5 custom_xl:p-0 custom_xl:size-72 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
             <p>
               {preview_about_me}
             </p>
           </Link>
-          <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+          <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">
+              <p className="heading-2">
                 {currentLanguage === "EN" ? "My latest album" : "Album mới nhất của mình"}
                 </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
@@ -148,14 +148,14 @@ export const HomePage = () => {
                 <img src={image.link}></img>
               ))}
             </div>
-            <p className="group-hover:text-primarydark group-hover:font-bold text-xl font-semibold">{latest_album_name}</p>
+            <p className="heading-3">{latest_album_name}</p>
             <p className="my-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
           </Link>
-          <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-5">
+          <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
-              <p className="text-3xl font-bold text-primarydark">
+              <p className="heading-2">
                 {currentLanguage === "EN" ? "My latest video" : "Video mới nhất của mình"}
                 </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
@@ -163,7 +163,7 @@ export const HomePage = () => {
             </div>
             <iframe className="pt-8 pb-4 w-full aspect-video" src={latestVid?.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
-            <p className="group-hover:text-primarydark group-hover:font-bold text-xl font-semibold">{latestVid?.title}</p>
+            <p className="heading-3">{latestVid?.title}</p>
             <p className="my-2">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>

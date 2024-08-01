@@ -1,9 +1,25 @@
 
 @import './styles/fonts.css';
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;  
+@tailwind utilities;
+
+@layer components {
+  .heading-2 {
+    @apply text-2xl capitalize font-bold text-primarydark;
+  };
+  .heading-3 {
+    @apply group-hover:text-primarydark group-hover:font-semibold text-lg font-medium;
+  };
+  .green-btn {
+    @apply px-3 py-2 my-5 text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary;
+  }
+}
 
 * {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  user-select: none;}
+  user-select: none;
+  color:#7c9e83;
+  font-size: medium;
+}
