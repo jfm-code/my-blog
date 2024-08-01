@@ -89,15 +89,15 @@ export const HomePage = () => {
   const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
 
   return (
-    <div className="text-primary">
+    <div className="text-primary text-md">
       <div className="flex flex-col items-center">
-        <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[225px] text-9xl font-fontAutography">j.f.m</p>
-        <p className="sm:text-xl mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
+        <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
+        <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
           <span className="hidden custom_nm:inline">
             {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo ra bởi sự kỉ luật, trí tuệ và lòng tốt."}
           </span>
         </p>
-        <div className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 pt-8 custom_sm:pt-10 custom_md:py-16">
+        <div className="px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-72 pt-8 custom_sm:pt-10 custom_md:py-16">
           <Carousel transition={{ duration: 1 }} className="w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {carouselPic.map(image => (
               <img src={image.link} alt="" className="h-full w-full object-cover"
@@ -110,7 +110,7 @@ export const HomePage = () => {
         <div className="w-full custom_md:w-2/3">
           {postContent.map((post, index) => (
             <div className="flex flex-col items-center">
-              <p className="sm:text-xl font-medium uppercase">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
+              <p className="font-medium uppercase">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
               <p className="text-2xl custom_nm:text-3xl custom_nm:mt-3 mb-4 custom_nm:mb-7 font-bold text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
               <img className="w-full" src={post.image_link}></img>
               <p className="text-lg text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
