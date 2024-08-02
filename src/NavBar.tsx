@@ -94,7 +94,7 @@ export const NavBar = () => {
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
             </button>
-            <form className="border w-72 ml-5 hidden custom_lg:block">   
+            <form className="border w-52 custom_xl:w-72 ml-5 hidden custom_lg:block">   
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
                         <svg className="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
