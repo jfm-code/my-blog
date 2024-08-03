@@ -9,6 +9,11 @@ module.exports = withMT({
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /^uk-/
+    }
+  ],
   theme: {
     extend: {
       screens: {

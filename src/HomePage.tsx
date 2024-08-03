@@ -89,7 +89,7 @@ export const HomePage = () => {
   const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
 
   return (
-    <div className="container mx-auto px-0 custom_sm:px-10 custom_md:px-20 custom_lg:px-40">
+    <div className="common-style">
       <div className="flex flex-col items-center">
         <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
         <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
@@ -115,7 +115,7 @@ export const HomePage = () => {
               <img className="w-full" src={post.image_link}></img>
               <p className="text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
               <Link to={`/post/${post.path}`}>
-                <input className="green-btn" type="submit" value="Read more"></input>
+                <input className="button" type="submit" value={currentLanguage === "EN" ? "Read more" : "Đọc thêm"}></input>
               </Link>
             </div>
           ))}

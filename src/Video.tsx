@@ -38,10 +38,10 @@ export const Video = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center px-5 custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-justify text-lg text-primary">
+        <div className="flex flex-col items-center text-justify common-style">
             <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to watch</p>
             {latestVideo && (
-                <div data-uk-lightbox className="group hover:bg-primarylight/70 p-5 custom_nm:p-8 custom_nm:mx-8 custom_md:mx-16 custom_lg:mx-40">
+                <div data-uk-lightbox className="group hover:bg-primarylight/70 p-5">
                     <a href={latestVideo.lightbox_link} data-caption={latestVideo.title} data-attrs="width: 1280; height: 720;">
                         <iframe className="w-full aspect-video pointer-events-none custom_nm:pointer-events-auto" src={latestVideo.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                         <div className="flex flex-col">
@@ -57,16 +57,16 @@ export const Video = () => {
                 </div>
             )}
 
-            <p className="text-2xl custom_md:text-4xl font-bold mt-20">OTHER VIDEOS <span className="hidden custom_nm:inline">ON MY YOUTUBE CHANNEL</span></p>
-            <p className="group relative w-max mt-5">
-                <a className="text-xl group-hover:text-primarydark" href="https://www.youtube.com/@jfm-channel">Click here to go to my channel</a>
+            <p className="heading-2 mt-10">OTHER VIDEOS <span className="heading-2 hidden custom_nm:inline">ON MY YOUTUBE CHANNEL</span></p>
+            <p className="group relative w-max mt-3">
+                <a className="group-hover:text-primarydark" href="https://www.youtube.com/@jfm-channel">Click here to go to my channel</a>
                 <span className="absolute -bottom-0.5 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
                 <span className="absolute -bottom-0.5 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </p>
 
-            <div data-uk-lightbox className="w-full my-5 grid grid-cols-1 custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-8 custom_lg:gap-5">
+            <div data-uk-lightbox className="w-full my-3 grid grid-cols-1 custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-3">
                 {videos.map(video => (
-                    <div className="group p-5 hover:bg-primarylight/70">
+                    <div className="group p-3 hover:bg-primarylight/70">
                         <a href={video.lightbox_link} data-caption={video.title} data-attrs="width: 1280; height: 720;">
                             <iframe className="w-full aspect-video pointer-events-none" src={video.embed_link} title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             <p className="group relative w-max mt-2 mb-2">

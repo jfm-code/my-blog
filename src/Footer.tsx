@@ -38,7 +38,7 @@ export const Footer = () => {
                         </div>
                     </div>
                 ))}
-                <form className="pl-3 custom_sm:pl-0 my-8 custom_lg:my-14 space-y-8">
+                <form className="pl-3 custom_sm:pl-0 my-8 custom_lg:my-14 space-y-6">
                     <p className="text-white font-bold uppercase">
                         {currentLanguage === "EN" ? "SUBSCRIBE FOR EMAILS FROM JFM BLOG" : "Đăng ký để nhận email thông báo từ JFM Blog"}
                     </p>
@@ -52,7 +52,7 @@ export const Footer = () => {
                         <p className="text-white">Email</p>
                         <input className="px-3 py-1 text-white w-72 custom_sm:w-80 bg-primary border border-white border-0 border-b outline-none focus:text-primary focus:bg-white focus:shadow-lg"></input>
                     </div>
-                    <input className="mt-10 p-2 w-24 text-lg text-white border border-white bg-primary hover:bg-white hover:text-primary" type="submit" value={currentLanguage === "EN" ? "Sign Up" : "Đăng ký"}></input>
+                    <input className="button" type="submit" value={currentLanguage === "EN" ? "Sign Up" : "Đăng ký"}></input>
                 </form>
             </div>
         </div>
