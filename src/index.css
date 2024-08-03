@@ -18,6 +18,9 @@
   .common-style {
     @apply container mx-auto px-0 custom_sm:px-10 custom_md:px-20 custom_lg:px-40 text-primary;
   }
+  .post-grid {
+    @apply grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-3;
+  }
 }
 
 * {

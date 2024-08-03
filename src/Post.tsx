@@ -97,7 +97,7 @@ export const Post = () => {
                     </div>
                 </div>
                 <div className="flex self-center w-full custom_lg:w-5/6">
-                    <div className="grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-3">
+                    <div className="post-grid">
                         {posts.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>

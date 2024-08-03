@@ -63,12 +63,12 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <nav className="w-full custom_xl:px-20 custom_md:px-10 px-5 py-10 text-primary relative">
+    <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 text-primary relative">
       <div className="w-full flex items-start custom_md:justify-between">
-        <div className="hidden mt-2 custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
+        <div className="hidden mt-4 custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
           {navbarContent && navbarContent.list.map(element => (
             <p className="group relative w-max">
-              <Link to={element.path} className="uppercase text-xl font-bold hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
+              <Link to={element.path} className="uppercase font-bold hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </p>
@@ -77,19 +77,19 @@ export const NavBar = () => {
         <div className="w-full custom_md:w-fit flex flex-col">
           <div className="flex flex-row items-center w-full custom_md:w-fit justify-between">
             <div className="hidden custom_lg:pl-10 custom_lg:flex custom_lg:flex-row custom_lg:items-center custom_lg:space-x-2 custom_xl:space-x-5">
-              <a href="mailto:my.giangvu@gmail.com"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-solid fa-envelope"></i></a>
-              <a href="https://www.facebook.com/giangmy.04/"><i className="text-xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/jfm_blog/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-linkedin-in"></i></a>
-              <a href="https://github.com/jfm-code"><i className="text-2xl p-2 hover:bg-primarylight hover:text-primarydark rounded-lg fa-brands fa-github"></i></a>
+              <a href="mailto:my.giangvu@gmail.com"><i className="p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-solid fa-envelope"></i></a>
+              <a href="https://www.facebook.com/giangmy.04/"><i className="p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/jfm_blog/"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/jfm-code"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-github"></i></a>
             </div>
-            <button onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-lg hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
+            <button onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
-            <button onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="text-lg ml-4 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-lg p-2 text-center inline-flex items-center" type="button">{currentLanguage} 
+            <button onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-4 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md p-2 text-center inline-flex items-center" type="button">{currentLanguage} 
               <svg className="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -101,7 +101,7 @@ export const NavBar = () => {
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="search" id="search" className="block w-full p-2 ps-10 text-lg text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
+                    <input type="search" id="search" className="block w-full h-10 p-2 ps-10 text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
                 </div>
             </form>
           </div>

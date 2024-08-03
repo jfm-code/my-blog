@@ -36,14 +36,14 @@ export const Picture = () => {
     const remainders = [0, 1, 2, 3];
 
     return (
-        <div data-uk-lightbox className="px-5 custom_nm:px-10 custom_md:px-20 custom_lg:px-40">
-            <div className="flex flex-col items-center text-primary my-8 space-y-5">
-                <p className="text-4xl custom_nm:text-5xl font-semibold">{currentLanguage === "EN" ? currentAlbum?.name.EN : currentAlbum?.name.VN}</p>
-                <p className="text-2xl">{currentLanguage === "EN" ? currentAlbum?.time.EN : currentAlbum?.time.VN}</p>
+        <div data-uk-lightbox className="common-style">
+            <div className="flex flex-col items-center text-primary my-5 space-y-3">
+                <p className="text-3xl heading-2">{currentLanguage === "EN" ? currentAlbum?.name.EN : currentAlbum?.name.VN}</p>
+                <p className="heading-3">{currentLanguage === "EN" ? currentAlbum?.time.EN : currentAlbum?.time.VN}</p>
             </div>
-            <div className="grid grid-cols-1 custom_sm:grid-cols-2 custom_nm:grid-cols-3 custom_md:grid-cols-4 gap-8 items-start mb-14">
+            <div className="grid grid-cols-1 custom_sm:grid-cols-2 custom_nm:grid-cols-3 custom_md:grid-cols-4 gap-5 items-start mb-14">
                 {remainders.map(remainder => (
-                    <div key={remainder} className="grid gap-8">
+                    <div key={remainder} className="grid gap-5">
                         {currentAlbum && currentAlbum.images
                             .filter((_, index) => index % 4 === remainder)
                             .map((image, index) => {
