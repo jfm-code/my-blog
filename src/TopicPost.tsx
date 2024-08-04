@@ -27,14 +27,14 @@ export const TopicPost = () => {
     }, [topicID]);
 
     return (
-        <div className="flex flex-col py-10 px-5 items-center custom_sm:px-10 custom_md:px-20 custom_xl:px-40 text-lg text-primary">
+        <div className="flex flex-col items-center py-8 common-style">
             <div className="mb-8 w-max relative">
-                <p className="uppercase font-semibold custom_sm:text-2xl">All posts about {topicID}</p>
+                <p className="uppercase font-semibold custom_sm:text-2xl">Posts about {topicID}</p>
                 <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
             </div>
             <div className="grid grid-cols-1 custom_nm:grid-cols-2 custom_md:grid-cols-3 custom_lg:grid-cols-4 custom_md:gap-2">
                 {TopicpostContent.map(post => (
-                    <Link to={`/post/${post.path}`} className="group p-5 hover:bg-primarylight/70">
+                    <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70">
                         <img src={post.image_link}></img>
                         <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
                             <span>{currentLanguage ==="EN" ? post.title.EN : post.title.VN}</span>

@@ -73,7 +73,7 @@ export const Post = () => {
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to write</p>
+            <p className="heading-1">a place to write</p>
             <div className="w-full flex flex-col custom_md:flex-row custom_md:space-x-8 custom_lg:space-x-16">
                 <img className="flex self-center w-full custom_nm:w-4/5 custom_md:self-start custom_md:w-2/5 custom_md:h-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/dalat-2021%2Fdalat-2021-1.JPG?alt=media&token=06767790-e40c-4c87-9d38-06618e011104"></img>
                 <div className="flex flex-col mt-5 w-full custom_nm:w-4/5 self-center custom_md:mt-0 ">

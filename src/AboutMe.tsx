@@ -23,7 +23,7 @@ export const AboutMe = () => {
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to know</p>
+            <p className="heading-1">a place to know</p>
             <img className="size-64 custom_sm:size-80 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
             <p className="py-10">{aboutMeInfo?.overview_myself}</p>
             <p className="self-start heading-2">How this blog was born</p>

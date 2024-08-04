@@ -63,9 +63,9 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 text-primary relative">
-      <div className="w-full flex items-start custom_md:justify-between">
-        <div className="hidden mt-4 custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
+    <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 mt-2 text-primary relative">
+      <div className="w-full flex items-center custom_md:justify-between">
+        <div className="hidden custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
           {navbarContent && navbarContent.list.map(element => (
             <p className="group relative w-max">
               <Link to={element.path} className="uppercase font-bold hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
@@ -76,12 +76,12 @@ export const NavBar = () => {
         </div>
         <div className="w-full custom_md:w-fit flex flex-col">
           <div className="flex flex-row items-center w-full custom_md:w-fit justify-between">
-            <div className="hidden custom_lg:pl-10 custom_lg:flex custom_lg:flex-row custom_lg:items-center custom_lg:space-x-2 custom_xl:space-x-5">
-              <a href="mailto:my.giangvu@gmail.com"><i className="p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-solid fa-envelope"></i></a>
-              <a href="https://www.facebook.com/giangmy.04/"><i className="p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/jfm_blog/"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-linkedin-in"></i></a>
-              <a href="https://github.com/jfm-code"><i className="text-lg p-2 hover:bg-primarylight hover:text-primarydark rounded-md fa-brands fa-github"></i></a>
+            <div className="hidden custom_lg:pl-10 custom_lg:flex custom_lg:flex-row custom_lg:items-center custom_lg:space-x-2 custom_xl:space-x-4">
+              <a href="mailto:my.giangvu@gmail.com"><i className="icon-style fa-solid fa-envelope"></i></a>
+              <a href="https://www.facebook.com/giangmy.04/"><i className="icon-style fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/jfm_blog/"><i className="custom-text-lg icon-style fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="custom-text-lg icon-style fa-brands fa-linkedin-in"></i></a>
+              <a href="https://github.com/jfm-code"><i className="custom-text-lg icon-style fa-brands fa-github"></i></a>
             </div>
             <button onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
@@ -89,19 +89,19 @@ export const NavBar = () => {
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
-            <button onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-4 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md p-2 text-center inline-flex items-center" type="button">{currentLanguage} 
+            <button onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1.5 px-2 text-center inline-flex items-center" type="button">{currentLanguage} 
               <svg className="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
             </button>
-            <form className="border w-52 custom_xl:w-72 ml-5 hidden custom_lg:block">   
+            <form className="border w-52 custom_xl:w-72 ml-3 hidden custom_lg:block">   
                 <div className="relative">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg className="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="search" id="search" className="block w-full h-10 p-2 ps-10 text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
+                    <input type="search" id="search" className="block w-full h-9 p-2 ps-10 text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
                 </div>
             </form>
           </div>

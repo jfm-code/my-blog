@@ -29,7 +29,7 @@ export const Album = () => {
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to see</p>
+            <p className="heading-1">a place to see</p>
             {albums.map(album => (
                 <Link to={`/album/${album.path}`} key={album.path} className="group hover:bg-primarylight/70 hover:border hover:shadow-md p-5 w-full flex flex-col-reverse custom_lg:flex-row custom_lg:odd:flex-row-reverse custom_lg:space-x-7 odd:space-x-reverse mb-10 items-center">
                     <div className="custom_lg:w-3/4 grid grid-cols-1 custom_sm:grid-cols-2 custom_lg:grid-cols-3 gap-y-5 custom_sm:gap-5">

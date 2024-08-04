@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer components {
+  .heading-1 {
+    @apply w-full flex justify-center text-4xl custom_sm:text-5xl custom_nm:text-6xl custom_md:text-7xl font-fontAutography pb-10 custom_sm:py-10;
+  }
   .heading-2 {
     @apply text-2xl capitalize font-bold text-primarydark;
   };
@@ -21,6 +24,9 @@
   .post-grid {
     @apply grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-3;
   }
+  .icon-style {
+    @apply p-2 hover:bg-primarylight hover:text-primarydark rounded-md;
+  }
 }
 
 * {
@@ -29,10 +35,19 @@
   font-size: medium;
 }
 
+.custom-text-lg {
+  font-size: large;
+  line-height: 18px;
+}
+
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
 
 .row-span-2 {
   grid-row: span 2 / span 2;
+}
+
+.row-span-3 {
+  grid-row: span 3 / span 3;
 }

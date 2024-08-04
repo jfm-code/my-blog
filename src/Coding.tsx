@@ -26,7 +26,7 @@ export const Coding = () => {
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to learn</p>
+            <p className="heading-1">a place to learn</p>
             {tutorials.map(prog_language => (
                 <div key={prog_language.name}>
                     <p className="self-start heading-2 mb-3">{prog_language.name}</p>

@@ -74,19 +74,19 @@ export const SinglePost = () => {
                     {current_topics && current_topics.map((topic, index) => (
                         <div className="w-max relative">
                             <div className="w-full flex flex-row space-x-1.5 font-semibold">
-                                <p className="uppercase">{topic}</p>
+                                <p className="uppercase">{currentLanguage === "EN" ? topic.EN : topic.VN}</p>
                                 <span className={`pr-1.5 ${index === current_topics.length - 1 ? 'hidden' : ''}`}>&#x2022;</span>
                             </div>
                             <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
                         </div>
                     ))}
                 </div>
-                <p className="w-full flex self-center text-4xl custom_md:text-5xl font-semibold">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
+                <p className="w-full flex self-center text-2xl custom_md:text-4xl font-semibold text-primarydark">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
                     <p>{currentLanguage === "EN" ? currentPost?.date.EN : currentPost?.date.VN}</p><span>|</span>
                     <p>3 minutes read</p>
                 </div>
-                <img src={image_link}></img>
+                <img className="w-full" src={image_link}></img>
             </div>
             
             <p className="w-2/3 text-justify whitespace-break-spaces">{postContent}</p>

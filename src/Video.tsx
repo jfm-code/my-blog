@@ -39,7 +39,7 @@ export const Video = () => {
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
-            <p className="w-full flex justify-center text-5xl custom_sm:text-6xl custom_nm:text-7xl custom_md:text-8xl font-fontAutography pb-10 custom_sm:py-10">a place to watch</p>
+            <p className="heading-1">a place to watch</p>
             {latestVideo && (
                 <div data-uk-lightbox className="group hover:bg-primarylight/70 p-5">
                     <a href={latestVideo.lightbox_link} data-caption={latestVideo.title} data-attrs="width: 1280; height: 720;">

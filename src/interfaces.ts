@@ -40,7 +40,7 @@ export interface PostObject {
     date: BilingualObject,
     short_description: BilingualObject,
     content: BilingualObject,
-    tags: string[]
+    tags: BilingualObject[]
 }
 
 export interface TopicObject {
