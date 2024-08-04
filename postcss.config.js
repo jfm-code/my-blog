@@ -1,5 +1,3 @@
-import tailwindcss from 'tailwindcss';
-import autoprefixer from 'autoprefixer';
 import sortMediaQueries from 'franken-ui/postcss/sort-media-queries';
 import combineDuplicatedSelectors from 'franken-ui/postcss/combine-duplicated-selectors';
 
