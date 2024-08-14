@@ -92,9 +92,9 @@ export const HomePage = () => {
     <div className="common-style">
       <div className="flex flex-col items-center">
         <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
-        <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog cá nhân của mình"}
+        <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog của mình"}
           <span className="hidden custom_nm:inline">
-            {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo ra bởi sự kỉ luật, trí tuệ và lòng tốt."}
+            {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo nên từ sự kỉ luật, trí tuệ và lòng tốt."}
           </span>
         </p>
         <div className="pt-8 custom_md:pb-4">

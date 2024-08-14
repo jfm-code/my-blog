@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs } from "firebase/firestore";
 import { AboutMeObject } from './interfaces';
+import { useLanguage } from './LanguageContext';
 
 export const AboutMe = () => {
 
     const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,11 +42,11 @@ export const AboutMe = () => {
                         <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border border-white bg-primary group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                         </div>
                         <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-                            <div className="flex justify-center mb-2 font-bold italic text-xl">{element.year}</div>
-                            <div className="flex font-bold text-left text-primarydark text-xl capitalize">{element.summary}</div>
+                            <div className="flex justify-center font-bold italic text-xl">{element.year}</div>
+                            <div className="flex font-bold text-left my-2 text-primarydark text-xl capitalize">{currentLanguage === "EN" ? element.summary.EN : element.summary.VN}</div>
                             {element.details.map(line => (
                                 <div className="text-left">
-                                    {line}
+                                    {currentLanguage === "EN" ? line.EN : line.VN}
                                     <br ></br>
                                 </div>
                             ))}

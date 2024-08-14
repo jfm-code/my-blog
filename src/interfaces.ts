@@ -66,7 +66,7 @@ export interface AboutMeObject {
     blogpic_link: string,
     timeline: [{
         year: string,
-        summary: string,
-        details: string[],
+        summary: BilingualObject,
+        details: BilingualObject[],
     }]
 }
