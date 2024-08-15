@@ -44,12 +44,12 @@ export const AboutMe = () => {
                 </div>
             </div>
             <p className="self-start heading-2">My life in a nutshell</p>
-            <div className="w-full py-8 space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-primary before:translate-x-[-5px] md:before:mx-auto md:before:translate-x-0">
+            <div className="w-full py-8 space-y-8 relative before:mt-3 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-primary before:translate-x-[-9px] custom_md:before:mx-auto custom_md:before:translate-x-0">
                 {aboutMeInfo?.timeline.map(element => (
-                    <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border border-white bg-primary group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <div className="relative flex items-center justify-between custom_md:justify-normal custom_md:odd:flex-row-reverse group">
+                        <div className="flex items-center justify-center w-6 h-6 custom_md:w-8 custom_md:h-8 rounded-full border border-white bg-primary group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 custom_md:order-1 custom_md:group-odd:-translate-x-3/4 custom_md:group-even:translate-x-3/4">
                         </div>
-                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+                        <div className="w-[calc(100%-4rem)] custom_md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                             <div className="flex justify-center font-bold italic text-xl">{element.year}</div>
                             <div className="flex font-bold text-left my-2 text-primarydark text-xl capitalize">{currentLanguage === "EN" ? element.summary.EN : element.summary.VN}</div>
                             {element.details.map(line => (

@@ -50,7 +50,7 @@ export const Post = () => {
             if (currentTopics.length > 0) {
                 tempPost = doc.data() as PostObject;
                 for (const tag of tempPost.tags) {
-                    if (currentTopics.includes(tag)) {
+                    if (currentTopics.includes(tag.EN)) {
                         postsData.push(tempPost);
                         break;
                     }
