@@ -29,17 +29,16 @@ export const AboutMe = () => {
             <img className="size-64 custom_sm:size-80 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
             <div className="py-10">
                 {aboutMeInfo?.overview_myself.map(paragraph => (
-                    <p className="py-1">{paragraph}</p>
+                    <p className="py-1">{currentLanguage === "EN" ? paragraph.EN : paragraph.VN}</p>
                 ))}
             </div>
             <p className="self-start heading-2">How this blog was born</p>
-            <div className="w-full flex flex-col-reverse custom_lg:flex-row space-x-0 custom_lg:space-x-10 custom_xl:space-x-14 items-center">
-                <div className="custom_lg:w-3/4 flex flex-col pt-0 pb-10 px-0">
+            <div className="w-full flex flex-col-reverse custom_lg:flex-row space-x-0 custom_lg:space-x-10 custom_xl:space-x-14 items-center mt-3 mb-8">
+                <div className="custom_lg:w-3/4 flex flex-col mt-5 custom_lg:mt-0">
                     {aboutMeInfo?.overview_blog.map(paragraph => (
-                        <p className="py-1">{paragraph}</p>
+                        <p className="py-1">{currentLanguage === "EN" ? paragraph.EN : paragraph.VN}</p>
                     ))}
                 </div>
-                
                 <div className="custom_lg:w-1/4 mt-10 custom_lg:mt-0">
                     <img className="size-64 custom_sm:size-80 custom_lg:size-auto rounded-full" src={aboutMeInfo?.blogpic_link}></img>
                 </div>

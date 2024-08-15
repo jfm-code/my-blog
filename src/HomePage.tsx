@@ -86,7 +86,9 @@ export const HomePage = () => {
   }, [currentLanguage])
 
   const latest_album_name = "BEING DAISY";
-  const preview_about_me = aboutMeInfo?.overview_myself.split(" ").slice(0, 50).join(" ");
+  const preview_about_me = currentLanguage === "EN" ? 
+    aboutMeInfo?.overview_myself[0].EN.split(" ").slice(0, 51).join(" ") + "..."
+    : aboutMeInfo?.overview_myself[0].VN.split(" ").slice(0, 51).join(" ") + "...";
 
   return (
     <div className="common-style">

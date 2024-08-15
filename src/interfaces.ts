@@ -61,8 +61,8 @@ export interface OnlyLinkObject {
 
 export interface AboutMeObject {
     profilepic_link: string,
-    overview_myself: string[],
-    overview_blog: string[],
+    overview_myself: BilingualObject[],
+    overview_blog: BilingualObject[],
     blogpic_link: string,
     timeline: [{
         year: string,
