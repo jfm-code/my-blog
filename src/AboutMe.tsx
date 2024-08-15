@@ -27,10 +27,19 @@ export const AboutMe = () => {
         <div className="flex flex-col items-center text-justify common-style">
             <p className="heading-1">a place to know</p>
             <img className="size-64 custom_sm:size-80 rounded-full" src={aboutMeInfo?.profilepic_link}></img>
-            <p className="py-10">{aboutMeInfo?.overview_myself}</p>
+            <div className="py-10">
+                {aboutMeInfo?.overview_myself.map(paragraph => (
+                    <p className="py-1">{paragraph}</p>
+                ))}
+            </div>
             <p className="self-start heading-2">How this blog was born</p>
             <div className="w-full flex flex-col-reverse custom_lg:flex-row space-x-0 custom_lg:space-x-10 custom_xl:space-x-14 items-center">
-                <p className="pt-4 pb-10 custom_lg:w-3/4 px-0">{aboutMeInfo?.overview_blog}</p>
+                <div className="custom_lg:w-3/4 flex flex-col pt-0 pb-10 px-0">
+                    {aboutMeInfo?.overview_blog.map(paragraph => (
+                        <p className="py-1">{paragraph}</p>
+                    ))}
+                </div>
+                
                 <div className="custom_lg:w-1/4 mt-10 custom_lg:mt-0">
                     <img className="size-64 custom_sm:size-80 custom_lg:size-auto rounded-full" src={aboutMeInfo?.blogpic_link}></img>
                 </div>
