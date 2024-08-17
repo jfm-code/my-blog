@@ -73,11 +73,11 @@ export const SinglePost = () => {
                 <div className=" w-full flex self-center">
                     {current_topics && current_topics.map((topic, index) => (
                         <div className="w-max relative">
-                            <div className="w-full flex flex-row space-x-1.5 font-semibold">
-                                <p className="uppercase">{currentLanguage === "EN" ? topic.EN : topic.VN}</p>
-                                <span className={`pr-1.5 ${index === current_topics.length - 1 ? 'hidden' : ''}`}>&#x2022;</span>
+                            <div className="w-full flex flex-row space-x-0.5 font-semibold">
+                                <Link to={`/post/topic/${topic.EN}`} className="hover:bg-primarylight hover:rounded-sm hover:text-primarydark px-1.5 uppercase">{currentLanguage === "EN" ? topic.EN : topic.VN}</Link>
+                                <span className={`pr-0.5 ${index === current_topics.length - 1 ? 'hidden' : ''}`}>&#x2022;</span>
                             </div>
-                            <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
+                            <span className="absolute -bottom-0.5 left-0 h-0.5 bg-primary w-full"></span>
                         </div>
                     ))}
                 </div>
@@ -103,10 +103,7 @@ export const SinglePost = () => {
                     {otherPost.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
-                            <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                                <span className="group-hover:text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
-                                <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
-                            </div>
+                            <div className="mt-3 mb-2 font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
                             <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
                                 {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}

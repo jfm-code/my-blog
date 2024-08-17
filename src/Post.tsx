@@ -10,7 +10,9 @@ import { useLanguage } from './LanguageContext';
 export const Post = () => {  
     const [topics, setTopics] = useState<TopicObject[]>([]);
     const [posts, setPosts] = useState<PostObject[]>([]);
+    const [latestpost, setLatestPost] = useState<PostObject | null>(null);
     const [currentTopics, setCurrentTopics] = useState<string[]>([]);
+    let [latestpostContent, setLatestPostContent] = useState<string>("");
     const { currentLanguage } = useLanguage();
 
     const selectTopic = (topic: string) => {
@@ -36,13 +38,13 @@ export const Post = () => {
         const querySnapshot1 = await getDocs(collection(db, "topics"));
         const querySnapshot2 = await getDocs(collection(db, "posts"));
 
-        const albumsData: TopicObject[] = [];
+        const topicData: TopicObject[] = [];
         let postsData: PostObject[] = [];
 
         querySnapshot1.forEach((doc) => {
-            albumsData.push(doc.data() as TopicObject);
+            topicData.push(doc.data() as TopicObject);
         });
-        setTopics(albumsData);
+        setTopics(topicData);
 
         let tempPost: PostObject;
         querySnapshot2.forEach((doc) => {
@@ -60,6 +62,21 @@ export const Post = () => {
                 postsData.push(doc.data() as PostObject);
             }
         });
+
+        if (!querySnapshot2.empty) {
+            const latestPostData = querySnapshot2.docs[querySnapshot2.docs.length - 1].data() as PostObject;
+            setLatestPost(latestPostData);
+            let url = currentLanguage === "EN" ? latestPostData.content.EN : latestPostData.content.VN;
+                if (url) {
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    setLatestPostContent(text);
+                    console.log("content babi", text)
+                }
+        } else {
+            setLatestPost(null);
+        }
+
         setPosts(postsData);
 
         } catch (error) {
@@ -69,18 +86,16 @@ export const Post = () => {
 
     useEffect(() => {
         fetchData();
-    }, [currentTopics]);
+    }, [currentTopics, currentLanguage]);
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
             <p className="heading-1">a place to write</p>
             <div className="w-full flex flex-col custom_md:flex-row custom_md:space-x-8 custom_lg:space-x-16">
-                <img className="flex self-center w-full custom_nm:w-4/5 custom_md:self-start custom_md:w-2/5 custom_md:h-full" src="https://firebasestorage.googleapis.com/v0/b/jfm-blog.appspot.com/o/dalat-2021%2Fdalat-2021-1.JPG?alt=media&token=06767790-e40c-4c87-9d38-06618e011104"></img>
+                <img className="flex self-center w-full custom_nm:w-4/5 custom_md:self-start custom_md:w-2/5 custom_md:h-full" src={latestpost?.image_link}></img>
                 <div className="flex flex-col mt-5 w-full custom_nm:w-4/5 self-center custom_md:mt-0 ">
-                    <p className="text-xl custom_sm:text-2xl font-medium">Post title and link goes here</p>
-                    <p className="my-2">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
+                    <p className="text-xl custom_sm:text-2xl font-medium">{currentLanguage === "EN" ? latestpost?.title.EN : latestpost?.title.VN}</p>
+                    <p className="my-2">{latestpostContent.split(" ").slice(0, 100).join(" ") + "..."}</p>
                     <input className="button w-fit" type="submit" value="Read more"></input>
                 </div>
             </div>
@@ -91,7 +106,7 @@ export const Post = () => {
                         {topics.map(topic => (
                             <div className="flex items-center min-w-52">
                                 <Checkbox onClick={() => selectTopic(topic.name.EN)} className="w-6 h-6 rounded-none checked:bg-primary border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
-                                <label className="cursor-pointer">{currentLanguage === "EN" ? topic.name.EN : topic.name.VN}</label>
+                                <label className="capitalize">{currentLanguage === "EN" ? topic.name.EN : topic.name.VN}</label>
                             </div>
                         ))}
                     </div>
@@ -101,10 +116,7 @@ export const Post = () => {
                         {posts.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
-                            <div className="group relative w-fit mt-4 mb-2 text-xl font-semibold group-hover:text-primarydark">
-                                <span className="group-hover:text-primarydark">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</span>
-                                <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
-                            </div>
+                            <div className="mt-3 mb-2 font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
                             <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
                                 {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}
