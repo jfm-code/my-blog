@@ -96,7 +96,9 @@ export const Post = () => {
                 <div className="flex flex-col mt-5 w-full custom_nm:w-4/5 self-center custom_md:mt-0 ">
                     <p className="text-xl custom_sm:text-2xl font-medium">{currentLanguage === "EN" ? latestpost?.title.EN : latestpost?.title.VN}</p>
                     <p className="my-2">{latestpostContent.split(" ").slice(0, 100).join(" ") + "..."}</p>
-                    <input className="button w-fit" type="submit" value="Read more"></input>
+                    <Link to={`/post/${latestpost?.path}`}>
+                        <input className="button w-fit" type="submit" value="Read more"></input>
+                    </Link>
                 </div>
             </div>
             <div className="w-full flex flex-col flex-auto mb-10 pt-5 custom_lg:flex-row custom_lg:space-x-5 custom_lg:my-10">
@@ -111,7 +113,7 @@ export const Post = () => {
                         ))}
                     </div>
                 </div>
-                <div className="flex self-center w-full custom_lg:w-5/6">
+                <div className="flex self-center custom_lg:self-start w-full custom_lg:w-5/6">
                     <div className="post-grid">
                         {posts.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>

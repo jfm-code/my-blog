@@ -115,7 +115,7 @@ export const HomePage = () => {
               <p className="font-medium uppercase pt-5">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</p>
               <p className="heading-2 py-4">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</p>
               <img className="w-full" src={post.image_link}></img>
-              <p className="text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]}</p>
+              <p className="text-justify mt-7 whitespace-pre-wrap">{previewTexts[index]+'...'}</p>
               <Link to={`/post/${post.path}`}>
                 <input className="button" type="submit" value={currentLanguage === "EN" ? "Read more" : "Đọc thêm"}></input>
               </Link>
