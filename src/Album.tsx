@@ -18,7 +18,7 @@ export const Album = () => {
             querySnapshot.forEach((doc) => {
               albumsData.push(doc.data() as AlbumObject);
             });
-            setAlbums(albumsData);
+            setAlbums(albumsData.reverse());
           } catch (error) {
             console.error('Error fetching data:', error);
           }
@@ -44,8 +44,7 @@ export const Album = () => {
                             <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
                         </p>
                         <p className="text-lg my-3">{currentLanguage === "EN" ? album.time.EN : album.time.VN}</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
+                        <p>{currentLanguage === "EN" ? album.description.EN : album.description.VN}</p>
                     </div>
                 </Link>
             ))}

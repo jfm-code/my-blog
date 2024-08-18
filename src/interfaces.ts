@@ -24,6 +24,7 @@ export interface AlbumObject {
     path: string;
     latest_album: boolean;
     images: (PictureObject | string)[];
+    description: BilingualObject;
 }
 
 export interface VideoObject {
