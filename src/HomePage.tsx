@@ -2,7 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject, AlbumObject, PictureObject} from './interfaces';
 import { useLanguage } from './LanguageContext';
 
