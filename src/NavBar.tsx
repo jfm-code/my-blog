@@ -48,14 +48,18 @@ export const NavBar = () => {
     };
 
     const fetchNavbar = async () => {
-      const q = query(collection(db, "navigation"), where("name", "==", "sections"));
-      const querySnapshot = await getDocs(q);
-      let navbarInfo: NavigationObject | null = null;
-
-      if (!querySnapshot.empty) {
-        navbarInfo = querySnapshot.docs[0].data() as NavigationObject;
+      try {
+        const q = query(collection(db, "navigation"), where("name", "==", "sections"));
+        const querySnapshot = await getDocs(q);
+        let navbarInfo: NavigationObject | null = null;
+  
+        if (!querySnapshot.empty) {
+          navbarInfo = querySnapshot.docs[0].data() as NavigationObject;
+        }
+        setnavbarContent(navbarInfo);
+      } catch (error) {
+        console.error("Error fetching data in navbar component:", error);
       }
-      setnavbarContent(navbarInfo);
     }
 
     navbarResponsive();

@@ -4,10 +4,11 @@ interface BilingualObject {
 }
 
 export interface TutorialObject {
-    name: string;
+    name: BilingualObject;
     list: [{
         path: string;
-        title: string;
+        title: BilingualObject;
+        description: BilingualObject;
         image_link: string;
         embed_link: string;
     }];
@@ -28,10 +29,10 @@ export interface AlbumObject {
 }
 
 export interface VideoObject {
-    title: string,
+    title: BilingualObject,
     embed_link: string,
     lightbox_link: string,
-    latest_video: boolean,
+    description: BilingualObject
 }
 
 export interface PostObject {

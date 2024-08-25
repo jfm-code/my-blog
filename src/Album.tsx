@@ -20,7 +20,7 @@ export const Album = () => {
             });
             setAlbums(albumsData.reverse());
           } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching data in album component:', error);
           }
         };
     

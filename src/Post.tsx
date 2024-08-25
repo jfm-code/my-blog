@@ -80,7 +80,7 @@ export const Post = () => {
         setPosts(postsData);
 
         } catch (error) {
-          console.error('Error fetching data:', error);
+          console.error('Error fetching data in post component:', error);
         }
       };
 

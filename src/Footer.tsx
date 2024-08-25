@@ -12,12 +12,16 @@ export const Footer = () => {
 
     useEffect(() => {
         const fetchFooterData = async () => {
-            const querySnapshot = await getDocs(collection(db, "navigation"));
+            try {
+                const querySnapshot = await getDocs(collection(db, "navigation"));
             const footerData: NavigationObject[] = [];
             querySnapshot.forEach((doc) => {
                 footerData.push(doc.data() as NavigationObject);
             })
             setfooterContent(footerData);
+            } catch (error) {
+                console.error('Error fetching data in footer component:', error);
+            }
         }
         fetchFooterData();
     }, []);

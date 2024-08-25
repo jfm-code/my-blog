@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject} from './interfaces';
+import { OnlyLinkObject, VideoObject, PostObject, AboutMeObject, AlbumObject, PictureObject} from './interfaces';
 import { useLanguage } from './LanguageContext';
 
 
 export const HomePage = () => {
   const [carouselPic, setCarouselPic] = useState<OnlyLinkObject[]>([]);
-  const [albumPic, setAlbumPic] = useState<OnlyLinkObject[]>([]);
-  const [latestVid, setLatestVid] = useState<VideoObject | null>(null);
+  const [latestVid, setLatestVid] = useState<VideoObject[]>([]);
+  const [latestAlbum, setLatestAlbum] = useState<AlbumObject[]>([]);
   const [postContent, setPostContent] = useState<PostObject[]>([]);
   const [previewTexts, setPreviewTexts] = useState<string[]>([]);
   const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
@@ -34,20 +34,19 @@ export const HomePage = () => {
           aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
         }
 
-        // Fetch latest album data
-        const queryAlbum = await getDocs(collection(db, "latest-album"));
-        const albumData: OnlyLinkObject[] = [];
-        queryAlbum.forEach((doc) => {
-          albumData.push(doc.data() as OnlyLinkObject);
-        });
-
         // Fetch latest video data
-        const q = query(collection(db, "videos"), where("latest_video", "==", true));
-        const queryVideo = await getDocs(q);
-        let videoData: VideoObject | null = null;
-        if (!queryVideo.empty) {
-          videoData = queryVideo.docs[0].data() as VideoObject;
-        }
+        const queryVideo = await getDocs(collection(db, "videos"));
+        const videoData: VideoObject[] = [];
+        queryVideo.forEach((doc) => {
+          videoData.push(doc.data() as VideoObject)
+        })
+
+        // Fetch latest album data
+        const queryAlbum = await getDocs(collection(db, "albums"));
+        const albumData: AlbumObject[] = [];
+        queryAlbum.forEach((doc) => {
+          albumData.push(doc.data() as AlbumObject);
+        })
 
         // Fetch 2 latest posts data
         const queryPost = await getDocs(collection(db, "posts"));
@@ -73,19 +72,18 @@ export const HomePage = () => {
         // Update state with all fetched data
         setCarouselPic(carouselData);
         setAboutMeInfo(aboutmeData);
-        setAlbumPic(albumData);
-        setLatestVid(videoData);
+        setLatestAlbum(albumData.slice(-1));
+        setLatestVid(videoData.slice(-1));
         setPostContent(twoLatestPosts);
         setPreviewTexts(textPreviews);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data in homepage component:", error);
       }
     };
 
     fetchData()
   }, [currentLanguage])
 
-  const latest_album_name = "BEING DAISY";
   const preview_about_me = currentLanguage === "EN" ? 
     aboutMeInfo?.overview_myself[0].EN.split(" ").slice(0, 51).join(" ") + "..."
     : aboutMeInfo?.overview_myself[0].VN.split(" ").slice(0, 51).join(" ") + "...";
@@ -145,15 +143,15 @@ export const HomePage = () => {
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-8 mb-4">
-              {albumPic.map(image => (
-                <img src={image.link}></img>
+            <div className="grid grid-cols-3 gap-2 mt-8 mb-4">
+              {latestAlbum[0]?.images
+                .filter((image): image is PictureObject => typeof image === 'object' && image !== null)
+                .map(image => (
+                  <img key={image.link} className={image.style || ''} src={image.link} alt="Album Image" />
               ))}
             </div>
-            <p className="heading-3">{latest_album_name}</p>
-            <p className="my-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            </p>
+            <p className="heading-3">{currentLanguage == "EN" ? latestAlbum[0]?.name.EN : latestAlbum[0]?.name.VN}</p>
+            <p className="my-2">{currentLanguage == "EN" ? latestAlbum[0]?.description.EN : latestAlbum[0]?.description.VN}</p>
           </Link>
           <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
@@ -163,11 +161,14 @@ export const HomePage = () => {
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
-            <iframe className="pt-8 pb-4 w-full aspect-video" src={latestVid?.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            <iframe className="pt-8 pb-4 w-full aspect-video" src={latestVid[0]?.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
-            <p className="heading-3">{latestVid?.title}</p>
+            <p className="heading-3">{currentLanguage == "EN" ? latestVid[0]?.title.EN : latestVid[0]?.title.VN}</p>
             <p className="my-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              {currentLanguage === "EN"
+                ? latestVid[0]?.description.EN
+                : latestVid[0]?.description.VN
+              }
             </p>
           </Link>
         </div>

@@ -12,12 +12,16 @@ export const AboutMe = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const queryInfo = await getDocs(collection(db, "aboutme"));
-            let aboutmeData: AboutMeObject | null = null;
-            if (!queryInfo.empty) {
-                aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
+            try {
+                const queryInfo = await getDocs(collection(db, "aboutme"));
+                let aboutmeData: AboutMeObject | null = null;
+                if (!queryInfo.empty) {
+                    aboutmeData = queryInfo.docs[0].data() as AboutMeObject;
+                }
+                setAboutMeInfo(aboutmeData);
+            } catch (error) {
+                console.error("Error fetching data in about me component: ", error);
             }
-            setAboutMeInfo(aboutmeData);
         };
 
         fetchData();

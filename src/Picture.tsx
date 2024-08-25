@@ -26,7 +26,7 @@ export const Picture = () => {
             setCurrentAlbum(currentAlbumData);
 
           } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching data in picture component:', error);
           }
         };
 
