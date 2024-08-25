@@ -1,30 +1,24 @@
-# React + TypeScript + Vite
+# JFM Blog
+Welcome to JFM Blog — a personal space where I share insights, experiences, and lessons learned through various aspects of life. This blog is a reflection of my journey, created with discipline, wisdom, and kindness.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🌐 Visit the Blog: [JFM Blog](https://jfm-blog.vercel.app/)
 
-Currently, two official plugins are available:
+## Features
+- Latest Posts: Stay updated with my most recent writings. Explore various topics such as education, work, friendship, and more using the topics filter on the posts page.
+- Albums: Discover photo albums from my travels and experiences.
+- Videos: Watch my latest videos, including vlogs and tutorials. On the videos page, you can also find more information about my YouTube channel, where I share more in-depth content and behind-the-scenes insights.
+- Coding: A section dedicated to coding tutorials and notes, perfect for those who enjoy programming and want to learn alongside me.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Multilingual Support
+The blog is available in both English and Vietnamese, making it accessible to a broader audience.
 
-## Expanding the ESLint configuration
+## Subscribe
+Don't miss out on any updates—subscribe with your email to receive notifications whenever there's something new on the blog.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Pages
+- Home: Overview of the latest content, including posts, albums, and videos.
+- About Me: Get to know more about my background and the motivations behind this blog.
+- Posts: A collection of all my blog posts, categorized by topics like education, work, friendship, and more, for easy navigation.
+- Album: Browse through my photo albums capturing memorable moments.
+- Videos: Watch my latest videos and vlogs. Learn more about my YouTube channel and join me on this creative journey.
+- Coding: Check out my coding tutorials, projects, and notes—perfect for developers and learners.
