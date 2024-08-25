@@ -67,7 +67,7 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 mt-2 text-primary relative">
+    <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 mt-2 text-primary relative z-50">
       <div className="w-full flex items-center custom_md:justify-between">
         <div className="hidden custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_xl:space-x-10">
           {navbarContent && navbarContent.list.map(element => (
@@ -82,10 +82,10 @@ export const NavBar = () => {
           <div className="flex flex-row items-center w-full custom_md:w-fit justify-between">
             <div className="hidden custom_lg:pl-10 custom_lg:flex custom_lg:flex-row custom_lg:items-center custom_lg:space-x-2 custom_xl:space-x-4">
               <a href="mailto:my.giangvu@gmail.com"><i className="icon-style fa-solid fa-envelope"></i></a>
-              <a href="https://www.facebook.com/giangmy.04/"><i className="icon-style fa-brands fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/jfm_blog/"><i className="custom-text-lg icon-style fa-brands fa-instagram"></i></a>
               <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="custom-text-lg icon-style fa-brands fa-linkedin-in"></i></a>
               <a href="https://github.com/jfm-code"><i className="custom-text-lg icon-style fa-brands fa-github"></i></a>
+              <a href="https://www.facebook.com/giangmy.04/"><i className="icon-style fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/jfm_blog/"><i className="custom-text-lg icon-style fa-brands fa-instagram"></i></a>
             </div>
             <button onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>

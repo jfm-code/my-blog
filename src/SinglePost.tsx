@@ -14,6 +14,7 @@ export const SinglePost = () => {
     const [currentPost, setCurrentPost] = useState<PostObject | null>(null);
     const [otherPost, setOtherPost] = useState<PostObject[]>([]);
     const [postContent, setPostContent] = useState<string>("");
+    const [readingTime, setReadTime] = useState<number>(0);
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -32,7 +33,13 @@ export const SinglePost = () => {
                         const response = await fetch(url);
                         const text = await response.text();
                         setPostContent(text);
-                        console.log("content babi", text)
+
+                        // get the reading time
+                        const wordCounts = text.split(' ').filter(word => word.length > 0).length;
+                        console.log(wordCounts);
+                        const wordsPerMinute = 230; // Average reading speed
+                        const estimatedReadingTime = Math.ceil(wordCounts / wordsPerMinute);
+                        setReadTime(estimatedReadingTime);
                     }
                 }
                 setCurrentPost(postData);
@@ -84,7 +91,7 @@ export const SinglePost = () => {
                 <p className="w-full flex self-center text-2xl custom_md:text-4xl font-semibold text-primarydark">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
                     <p>{currentLanguage === "EN" ? currentPost?.date.EN : currentPost?.date.VN}</p><span>|</span>
-                    <p>3 minutes read</p>
+                    <p>{readingTime} {readingTime > 1 ? "minutes read" : "minute read"}</p>
                 </div>
                 <img className="w-full" src={image_link}></img>
             </div>
