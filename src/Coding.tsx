@@ -36,7 +36,7 @@ export const Coding = () => {
                         {prog_language.list.map(tutorial => (
                             <Link to={`/coding/${tutorial.path}`} className="group hover:bg-primarylight/70 p-3" key={tutorial.path}>
                                 <img src={tutorial.image_link}/>
-                                <div className="group relative w-fit my-2 flex">
+                                <div className="group relative w-fit my-2 flex tracking-wide">
                                     <span className="text-lg font-bold group-hover:text-primarydark">{currentLanguage == "EN" ? tutorial.title.EN : tutorial.title.VN}</span>
                                     <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                                 </div>

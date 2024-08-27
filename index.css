@@ -10,10 +10,10 @@
     @apply w-full flex justify-center text-4xl custom_sm:text-5xl custom_nm:text-6xl custom_md:text-7xl font-fontAutography pb-10 custom_sm:py-10;
   }
   .heading-2 {
-    @apply text-2xl capitalize font-bold text-primarydark;
+    @apply text-2xl tracking-wide capitalize font-bold text-primarydark;
   };
   .heading-3 {
-    @apply group-hover:text-primarydark group-hover:font-semibold text-lg font-medium;
+    @apply group-hover:text-primarydark group-hover:font-semibold text-lg font-medium tracking-wide;
   };
   .button {
     @apply px-3 py-2 my-5 text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary;
@@ -30,13 +30,12 @@
 }
 
 * {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'fontEB';
   user-select: none;
-  font-size: medium;
+  font-size: large;
 }
 
-.custom-text-lg {
-  font-size: large;
+.custom-icon-height {
   line-height: 18px;
 }
 

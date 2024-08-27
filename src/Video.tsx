@@ -61,7 +61,7 @@ export const Video = () => {
                     <div className="group p-3 hover:bg-primarylight/70">
                         <a href={video.lightbox_link} data-caption={video.title.EN} data-attrs="width: 1280; height: 720;">
                             <iframe className="w-full aspect-video pointer-events-none" src={video.embed_link} title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-                            <p className="group relative w-max mt-2 mb-2">
+                            <p className="group relative w-max mt-2 mb-2 tracking-wider">
                                 <p className="group-hover:text-primarydark font-bold text-lg">{currentLanguage == "EN" ? video.title.EN : video.title.VN}</p>
                                 <span className="absolute -bottom-0.5 left-0 w-0 transition-all h-0.5 bg-primarydark group-hover:w-full"></span>
                             </p>

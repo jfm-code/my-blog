@@ -103,7 +103,7 @@ export const Post = () => {
             </div>
             <div className="w-full flex flex-col flex-auto mb-10 pt-5 custom_lg:flex-row custom_lg:space-x-5 custom_lg:my-10">
                 <div className="flex flex-col mb-5 custom_lg:mx-0 custom_lg:mb-0">
-                    <p className="flex self-center custom_lg:self-start text-2xl font-semibold mb-2">TOPICS</p>
+                    <p className="flex self-center custom_lg:self-start text-xl tracking-wide font-semibold mb-2">{currentLanguage == "EN" ? "TOPICS" : "CHỦ ĐỀ"}</p>
                     <div className="w-full custom_lg:w-1/6 flex justify-start flex-wrap custom_lg:flex-col">
                         {topics.map(topic => (
                             <div className="flex items-center min-w-52">
@@ -118,7 +118,7 @@ export const Post = () => {
                         {posts.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
-                            <div className="mt-3 mb-2 font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
+                            <div className="mt-3 mb-2 tracking-wide font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
                             <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
                                 {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}

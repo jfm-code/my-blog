@@ -55,7 +55,7 @@ export const AboutMe = () => {
                         </div>
                         <div className="w-[calc(100%-4rem)] custom_md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                             <div className="flex justify-center font-bold italic text-xl">{element.year}</div>
-                            <div className="flex font-bold text-left my-2 text-primarydark text-xl capitalize">{currentLanguage === "EN" ? element.summary.EN : element.summary.VN}</div>
+                            <div className="flex font-bold text-left my-2 text-primarydark text-xl capitalize tracking-wide">{currentLanguage === "EN" ? element.summary.EN : element.summary.VN}</div>
                             {element.details.map(line => (
                                 <div className="text-left">
                                     {currentLanguage === "EN" ? line.EN : line.VN}
