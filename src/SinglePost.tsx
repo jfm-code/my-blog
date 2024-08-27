@@ -76,32 +76,32 @@ export const SinglePost = () => {
 
     return (
         <div className="flex flex-col items-center space-y-8 my-10 common-style">
-            <div className="w-2/3 space-y-5">
+            <div className="w-full custom_sm:w-5/6 custom_md:w-2/3 space-y-5">
                 <div className=" w-full flex self-center">
                     {current_topics && current_topics.map((topic, index) => (
                         <div className="w-max relative">
                             <div className="w-full flex flex-row space-x-0.5 font-semibold">
-                                <Link to={`/post/topic/${topic.EN}`} className="hover:bg-primarylight hover:rounded-sm hover:text-primarydark px-1.5 uppercase">{currentLanguage === "EN" ? topic.EN : topic.VN}</Link>
+                                <Link to={`/post/topic/${topic.EN}`} className="hover:bg-primarylight hover:rounded-sm hover:text-primarydark px-1.5 uppercase tracking-wide">{currentLanguage === "EN" ? topic.EN : topic.VN}</Link>
                                 <span className={`pr-0.5 ${index === current_topics.length - 1 ? 'hidden' : ''}`}>&#x2022;</span>
                             </div>
                             <span className="absolute -bottom-0.5 left-0 h-0.5 bg-primary w-full"></span>
                         </div>
                     ))}
                 </div>
-                <p className="w-full flex self-center text-2xl custom_md:text-4xl font-semibold text-primarydark">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
+                <p className="w-full flex self-center text-2xl custom_md:text-4xl font-semibold text-primarydark tracking-wide">{currentLanguage === "EN" ? currentPost?.title.EN : currentPost?.title.VN}</p>
                 <div className="w-full  flex flex-row space-x-3 italic">
                     <p>{currentLanguage === "EN" ? currentPost?.date.EN : currentPost?.date.VN}</p><span>|</span>
-                    <p>{readingTime} {readingTime > 1 ? "minutes read" : "minute read"}</p>
+                    <p>{readingTime} {currentLanguage === "EN" ? "minute(s) read" : "phút đọc"}</p>
                 </div>
                 <img className="w-full" src={image_link}></img>
             </div>
             
-            <p className="w-2/3 text-justify whitespace-break-spaces">{postContent}</p>
+            <p className="w-full custom_sm:w-5/6 custom_md:w-2/3 text-justify whitespace-break-spaces">{postContent}</p>
             
             <div className="w-full">
                 <div className="w-full flex self-center mb-2">
                     <div className="w-max relative">
-                        <p className="font-semibold">MORE POSTS TO READ</p>
+                        <p className="font-semibold tracking-wide">{currentLanguage === "EN" ? "MORE POSTS TO READ" : "CÁC BÀI VIẾT KHÁC"}</p>
                         <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary w-full"></span>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ export const SinglePost = () => {
                     {otherPost.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
-                            <div className="mt-3 mb-2 font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
+                            <div className="mt-3 mb-2 tracking-wide font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
                             <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
                                 {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}
