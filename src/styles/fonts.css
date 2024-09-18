@@ -11,3 +11,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'fontPrata';
+  src: url('../assets/fonts/Prata-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

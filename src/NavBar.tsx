@@ -9,8 +9,10 @@ export const NavBar = () => {
 
   const [isOpenMenuDropdown, setIsOpenMenuDropdown] = useState(false);
   const menuDropdownRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [isOpenLanguageDropdown, setIsOpenLanguageDropdown] = useState(false);
   const languageDropdownRef = useRef<HTMLDivElement>(null);
+  const languageButtonRef = useRef<HTMLButtonElement>(null);
   const [navbarContent, setnavbarContent] = useState<NavigationObject | null>(null);
   const { currentLanguage, setCurrentLanguage } = useLanguage();
 
@@ -31,10 +33,12 @@ export const NavBar = () => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target as Node)) {
+    if (menuDropdownRef.current && !menuDropdownRef.current.contains(event.target as Node)
+        && menuButtonRef.current && !menuButtonRef.current.contains(event.target as Node)) {
       setIsOpenMenuDropdown(false);
     }
-    if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+    if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)
+        && languageButtonRef.current && !languageButtonRef.current.contains(event.target as Node)) {
       setIsOpenLanguageDropdown(false);
     }
   };
@@ -64,7 +68,14 @@ export const NavBar = () => {
 
     navbarResponsive();
     fetchNavbar();
-  }, []);
+
+    // For DEBUGGING
+    // if (isOpenMenuDropdown) {
+    //   console.log("Menu is now open");
+    // } else {
+    //   console.log("Menu is now closed");
+    // }
+  }, [isOpenMenuDropdown, isOpenLanguageDropdown]);
 
   return (
     <nav className="w-full custom_xl:px-20 custom_md:px-10 p-5 mt-2 text-primary relative z-50">
@@ -87,13 +98,13 @@ export const NavBar = () => {
               <a href="https://www.facebook.com/giangmy.04/"><i className="text-sm custom-icon-height icon-style fa-brands fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/jfm_blog/"><i className="custom-icon-height icon-style fa-brands fa-instagram"></i></a>
             </div>
-            <button onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
+            <button ref={menuButtonRef} onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
-            <button onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1.5 px-2 text-center inline-flex items-center" type="button">{currentLanguage} 
+            <button ref={languageButtonRef} onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1.5 px-2 text-center inline-flex items-center" type="button">{currentLanguage} 
               <svg className="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
               </svg>
@@ -111,7 +122,7 @@ export const NavBar = () => {
           </div>
           
           {isOpenMenuDropdown && (
-            <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full px-2 relative">
+            <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full relative">
               <div onClick={handleOpenMenuDropdown} className="absolute w-full flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
                 {navbarContent && navbarContent.list.map(element => (
                   <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{currentLanguage === "EN" ? element.name.EN : element.name.VN}</Link>

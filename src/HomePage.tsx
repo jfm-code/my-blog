@@ -91,13 +91,13 @@ export const HomePage = () => {
   return (
     <div className="common-style">
       <div className="flex flex-col items-center">
-        <p className="ml-14 mb-5 mt-[-40px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
+        <p className="ml-14 mb-0 mt-[-20px] custom_sm:mt-0 custom_sm:mb-14 custom_sm:text-[200px] text-9xl font-fontAutography">j.f.m</p>
         <p className="mt-5 custom_sm:mt-0"> {currentLanguage === "EN" ? "A personal blog" : "Trang blog của mình"}
           <span className="hidden custom_nm:inline">
             {currentLanguage === "EN" ? ". Created with discipline, wisdom and kindness." : ". Được tạo nên từ sự kỉ luật, trí tuệ và lòng tốt."}
           </span>
         </p>
-        <div className="pt-8 custom_md:pb-4">
+        <div className="pt-5 custom_sm:pt-8 custom_md:pb-4">
           <Carousel transition={{ duration: 1 }} className="w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {carouselPic.map(image => (
               <img src={image.link} alt="" className="h-full w-full object-cover"
@@ -138,7 +138,7 @@ export const HomePage = () => {
           <Link to="/album" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
               <p className="heading-2">
-                {currentLanguage === "EN" ? "My latest album" : "Album mới nhất của mình"}
+                {currentLanguage === "EN" ? "My latest album" : "Album mới nhất"}
                 </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
@@ -156,7 +156,7 @@ export const HomePage = () => {
           <Link to="/video" className="group hover:bg-primarylight/70 flex flex-col items-center p-3">
             <div className="group relative w-max">
               <p className="heading-2">
-                {currentLanguage === "EN" ? "My latest video" : "Video mới nhất của mình"}
+                {currentLanguage === "EN" ? "My latest video" : "Video mới nhất"}
                 </p>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>

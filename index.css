@@ -7,7 +7,7 @@
 
 @layer components {
   .heading-1 {
-    @apply w-full flex justify-center text-4xl custom_sm:text-5xl custom_nm:text-6xl custom_md:text-7xl font-fontAutography pb-10 custom_sm:py-10;
+    @apply w-full flex tracking-[0.04em] custom_sm:tracking-normal justify-center text-5xl custom_nm:text-6xl custom_md:text-7xl font-fontAutography pb-5 custom_sm:pb-10 custom_sm:py-10;
   }
   .heading-2 {
     @apply text-2xl tracking-wide capitalize font-bold text-primarydark;
