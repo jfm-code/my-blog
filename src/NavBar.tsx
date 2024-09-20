@@ -51,9 +51,33 @@ export const NavBar = () => {
       };
     };
 
+    const hoverButton = async () => {
+      const button = document.getElementById('button-hamburger');
+    
+      if (button) {
+        button.addEventListener('mouseup', function () {
+          button.classList.remove("hover:bg-primarylight");
+          button.classList.remove("hover:text-primarydark");
+          console.log("remove")
+        });
+        button.addEventListener('mousedown', function () {
+          button.classList.add("hover:bg-primarylight");
+          button.classList.add("hover:text-primarydark");
+          console.log("add")
+        });
+        button.addEventListener('mouseover', function () {
+          button.classList.add("hover:bg-primarylight");
+          button.classList.add("hover:text-primarydark");
+          console.log("add1")
+        });
+      } else {
+        console.error('Button element not found');
+      }
+    };
+
     const fetchNavbar = async () => {
       try {
-        const q = query(collection(db, "navigation"), where("name", "==", "sections"));
+        const q = query(collection(db, "navigation"), where("name.EN", "==", "sections"));
         const querySnapshot = await getDocs(q);
         let navbarInfo: NavigationObject | null = null;
   
@@ -67,6 +91,7 @@ export const NavBar = () => {
     }
 
     navbarResponsive();
+    hoverButton();
     fetchNavbar();
 
     // For DEBUGGING
@@ -95,7 +120,7 @@ export const NavBar = () => {
               <a href="mailto:my.giangvu@gmail.com"><i className="text-sm custom-icon-height icon-style fa-solid fa-envelope"></i></a>
               <a href="https://www.linkedin.com/in/jessica-vu-uml/"><i className="custom-icon-height icon-style fa-brands fa-linkedin-in"></i></a>
               <a href="https://github.com/jfm-code"><i className="icon-style custom-icon-height fa-brands fa-github"></i></a>
-              <a href="https://www.facebook.com/giangmy.04/"><i className="text-sm custom-icon-height icon-style fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.facebook.com/this.is.jfm/"><i className="text-sm custom-icon-height icon-style fa-brands fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/jfm_blog/"><i className="custom-icon-height icon-style fa-brands fa-instagram"></i></a>
             </div>
             <button ref={menuButtonRef} onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">

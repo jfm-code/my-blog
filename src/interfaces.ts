@@ -50,7 +50,7 @@ export interface TopicObject {
 }
 
 export interface NavigationObject {
-    name: string,
+    name: BilingualObject,
     list: [{
         name: BilingualObject,
         path: string,

@@ -32,7 +32,7 @@ export const Footer = () => {
                 {footerContent.map(section => (
                     <div className="my-8 grid-cols- custom_lg:my-14 hidden custom_md:block">
                         <div className=" space-y-3">
-                            <p className="text-white tracking-widest font-bold mb-2 uppercase">{section.name}</p>
+                            <p className="text-white tracking-widest font-bold mb-2 uppercase">{currentLanguage === "EN" ? section.name.EN : section.name.VN}</p>
                             {section.list.map(line => (
                                 <p className="group relative w-max">
                                     <Link to={line.path} className="text-white">{currentLanguage === "EN" ? line.name.EN : line.name.VN}</Link>
@@ -42,7 +42,7 @@ export const Footer = () => {
                         </div>
                     </div>
                 ))}
-                <form className="pl-3 custom_sm:pl-0 my-8 custom_lg:my-14 space-y-6">
+                <form className="custom_sm:pl-0 my-8 custom_lg:my-14 space-y-6">
                     <p className="text-white tracking-wider font-bold uppercase">
                         {currentLanguage === "EN" ? "SUBSCRIBE FOR EMAILS FROM JFM BLOG" : "Đăng ký để nhận email thông báo từ JFM Blog"}
                     </p>

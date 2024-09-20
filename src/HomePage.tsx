@@ -15,6 +15,7 @@ export const HomePage = () => {
   const [previewTexts, setPreviewTexts] = useState<string[]>([]);
   const [aboutMeInfo, setAboutMeInfo] = useState<AboutMeObject | null>(null);
   const { currentLanguage } = useLanguage();
+  const viewportWidth = window.innerWidth;
   
   useEffect(() => {
 
@@ -48,6 +49,9 @@ export const HomePage = () => {
           albumData.push(doc.data() as AlbumObject);
         })
 
+        // Determine text length based on viewport size
+        const textLimit = viewportWidth <= 500 ? 50 : 150; // Limit words: 50 for mobile, 150 for larger screens
+
         // Fetch 2 latest posts data
         const queryPost = await getDocs(collection(db, "posts"));
         const postData: PostObject[] = [];
@@ -64,7 +68,7 @@ export const HomePage = () => {
           if (url) {
             const response = await fetch(url);
             text = await response.text();
-            text = text.split(" ").slice(0, 150).join(" ");
+            text = text.split(" ").slice(0, textLimit).join(" ");
           }
           textPreviews.push(text);
         }
@@ -82,7 +86,7 @@ export const HomePage = () => {
     };
 
     fetchData()
-  }, [currentLanguage])
+  }, [currentLanguage, viewportWidth])
 
   const preview_about_me = currentLanguage === "EN" ? 
     aboutMeInfo?.overview_myself[0].EN.split(" ").slice(0, 51).join(" ") + "..."
@@ -161,7 +165,7 @@ export const HomePage = () => {
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </div>
-            <iframe className="pt-8 pb-4 w-full aspect-video" src={latestVid[0]?.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+            <iframe className="pt-8 pb-4 aspect-auto" src={latestVid[0]?.embed_link} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
             <p className="heading-3">{currentLanguage == "EN" ? latestVid[0]?.title.EN : latestVid[0]?.title.VN}</p>
             <p className="my-2">
