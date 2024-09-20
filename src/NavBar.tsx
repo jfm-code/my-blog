@@ -53,6 +53,7 @@ export const NavBar = () => {
 
     const hoverButton = async () => {
       const button = document.getElementById('button-hamburger');
+      const button1 = document.getElementById('button-language');
     
       if (button) {
         button.addEventListener('mouseup', function () {
@@ -71,7 +72,27 @@ export const NavBar = () => {
           console.log("add1")
         });
       } else {
-        console.error('Button element not found');
+        console.error('Menu button element not found');
+      }
+
+      if (button1) {
+        button1.addEventListener('mouseup', function () {
+          button1.classList.remove("hover:bg-primarylight/70");
+          button1.classList.remove("hover:text-primarydark");
+          console.log("remove")
+        });
+        button1.addEventListener('mousedown', function () {
+          button1.classList.add("hover:bg-primarylight/70");
+          button1.classList.add("hover:text-primarydark");
+          console.log("add")
+        });
+        button1.addEventListener('mouseover', function () {
+          button1.classList.add("hover:bg-primarylight/70");
+          button1.classList.add("hover:text-primarydark");
+          console.log("add1")
+        });
+      } else {
+        console.error('Language button element not found');
       }
     };
 
