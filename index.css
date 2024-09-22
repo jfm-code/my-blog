@@ -16,7 +16,7 @@
     @apply group-hover:text-primarydark group-hover:font-semibold text-lg font-medium tracking-wide;
   };
   .button {
-    @apply px-3 py-2 my-5 text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary;
+    @apply px-3 py-2 my-4 text-white border border-white bg-primary hover:bg-white hover:text-primary hover:border-primary;
   }
   .common-style {
     @apply container mx-auto px-0 custom_sm:px-10 custom_md:px-20 custom_lg:px-40 text-primary;
