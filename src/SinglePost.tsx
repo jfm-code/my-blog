@@ -110,7 +110,7 @@ export const SinglePost = () => {
                     {otherPost.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
-                            <div className="mt-3 mb-2 tracking-wide font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
+                            <div className="mt-3 mb-2 tracking-wide font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-1.5 group-hover:underline-offset-[5.5px]">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
                             <span className="italic">{currentLanguage === "EN" ? post.date.EN : post.date.VN}</span>
                             <p>
                                 {currentLanguage === "EN" ? post.short_description.EN : post.short_description.VN}

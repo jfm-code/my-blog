@@ -36,7 +36,7 @@ export const Footer = () => {
                             {section.list.map(line => (
                                 <p className="group relative w-max">
                                     <Link to={line.path} className="text-white">{currentLanguage === "EN" ? line.name.EN : line.name.VN}</Link>
-                                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
+                                    <span className="absolute -bottom-0 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full"></span>
                                 </p>
                             ))}
                         </div>

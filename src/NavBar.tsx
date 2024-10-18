@@ -129,9 +129,9 @@ export const NavBar = () => {
         <div className="hidden custom_md:flex custom_md:flex-row custom_md:space-x-5 custom_md:mr-5">
           {navbarContent && navbarContent.list.map(element => (
             <p className="group relative w-max">
-              <Link to={element.path} className="uppercase font-bold tracking-wider hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
-              <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
-              <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <Link to={element.path} className="uppercase font-bold tracking-wider group-hover:text-primarydark">{currentLanguage === "EN" ? element.name.EN : element.name.VN }</Link>
+              <span className="absolute -bottom-0 left-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
+              <span className="absolute -bottom-0 right-1/2 w-0 transition-all h-0.5 bg-primarydark group-hover:w-3/6"></span>
             </p>
           ))}
         </div>
@@ -150,9 +150,9 @@ export const NavBar = () => {
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
-            <button ref={languageButtonRef} onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1.5 px-2 text-center inline-flex items-center" type="button">{currentLanguage} 
-              <svg className="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            <button ref={languageButtonRef} onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1 px-1.5 text-center inline-flex items-center" type="button">{currentLanguage} 
+              <svg className="w-2.5 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m1 1 4 4 4-4"/>
               </svg>
             </button>
             <form className="border w-52 custom_xl:w-72 ml-3 hidden custom_lg:block">   
