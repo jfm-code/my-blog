@@ -1,5 +1,6 @@
 import './styles/fonts.css';
 import { Checkbox } from "@material-tailwind/react";
+import { DefaultPagination } from './Pagination';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { db } from './FirebaseConfig'
@@ -13,6 +14,9 @@ export const Post = () => {
     const [latestpost, setLatestPost] = useState<PostObject | null>(null);
     const [currentTopics, setCurrentTopics] = useState<string[]>([]);
     let [latestpostContent, setLatestPostContent] = useState<string>("");
+    const [currentPage, setCurrentPage] = useState(1); // For the pagination component
+    // const [postsPerPage] = useState(3); // For the pagination component
+    let [postsPerPage, setPostPerPage] = useState(3);
     const { currentLanguage } = useLanguage();
     const viewportWidth = window.innerWidth;
 
@@ -78,16 +82,28 @@ export const Post = () => {
             setLatestPost(null);
         }
 
-        setPosts(postsData);
+        setPosts(postsData.reverse()); // Show the most recent post first
 
         } catch (error) {
           console.error('Error fetching data in post component:', error);
         }
-      };
+    };
 
     useEffect(() => {
         fetchData();
+        if (viewportWidth <= 500) {
+            setPostPerPage(3);
+        } else {
+            setPostPerPage(6);
+        }
     }, [currentTopics, currentLanguage, viewportWidth]);
+
+    // For the pagination component
+    
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    const totalPages = Math.ceil(posts.length / postsPerPage);
 
     return (
         <div className="flex flex-col items-center text-justify common-style">
@@ -118,9 +134,9 @@ export const Post = () => {
                         ))}
                     </div>
                 </div>
-                <div className="flex self-center custom_lg:self-start w-full custom_lg:w-5/6">
+                <div className="flex flex-col self-center custom_lg:self-start w-full custom_lg:w-5/6">
                     <div className="post-grid">
-                        {posts.map(post => (
+                        {currentPosts.map(post => (
                         <Link to={`/post/${post.path}`} className="group p-3 hover:bg-primarylight/70" key={post.path}>
                             <img src={post.image_link}/>
                             <div className="mt-3 mb-2 tracking-wide font-semibold group-hover:text-primarydark group-hover:underline group-hover:decoration-1.5 group-hover:underline-offset-[5.5px]">{currentLanguage === "EN" ? post.title.EN : post.title.VN}</div>
@@ -131,22 +147,8 @@ export const Post = () => {
                         </Link>
                         ))}
                     </div>
-                    {/* <nav aria-label="Pagination">
-                        <ul className="uk-flex-center uk-pagination" uk-margin>
-                            <li>
-                            <a href="#"><span uk-pagination-previous></span></a>
-                            </li>
-                            <li><a href="#">1</a></li>
-                            <li className="uk-disabled"><span>…</span></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li className="uk-active"><span aria-current="page">7</span></li>
-                            <li><a href="#">8</a></li>
-                            <li>
-                            <a href="#"><span uk-pagination-next></span></a>
-                            </li>
-                        </ul>
-                    </nav> */}
+                    {/* The pagination component locates here */}
+                    <DefaultPagination currentPage={currentPage} setPage={setCurrentPage} totalPages={totalPages} />
                 </div>
             </div>
         </div>
