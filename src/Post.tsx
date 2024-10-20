@@ -118,7 +118,7 @@ export const Post = () => {
                             : latestpostContent.split(" ").slice(0, 100).join(" ") + "..."}
                     </p>
                     <Link to={`/post/${latestpost?.path}`}>
-                        <input className="button w-fit" type="submit" value="Read more"></input>
+                        <input className="button w-fit" type="submit" value={currentLanguage === "EN" ? "Read more" : "Đọc thêm"}></input>
                     </Link>
                 </div>
             </div>
@@ -128,7 +128,7 @@ export const Post = () => {
                     <div className="w-full custom_lg:w-1/6 flex justify-start flex-wrap custom_lg:flex-col">
                         {topics.map(topic => (
                             <div className="flex items-center min-w-52">
-                                <Checkbox onClick={() => selectTopic(topic.name.EN)} className="w-6 h-6 rounded-none checked:bg-primary border-primary border-2 checked:border-none" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
+                                <Checkbox ripple={false} onClick={() => selectTopic(topic.name.EN)}  className="w-5 h-5 rounded-none checked:bg-primary border-primary border-2 checked:border-none before:h-10 before:w-10" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}/>
                                 <label className="capitalize">{currentLanguage === "EN" ? topic.name.EN : topic.name.VN}</label>
                             </div>
                         ))}

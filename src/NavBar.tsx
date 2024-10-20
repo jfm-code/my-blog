@@ -144,34 +144,34 @@ export const NavBar = () => {
               <a href="https://www.facebook.com/this.is.jfm/"><i className="text-sm custom-icon-height icon-style fa-brands fa-facebook-f"></i></a>
               <a href="https://www.instagram.com/jfm_blog/"><i className="custom-icon-height icon-style fa-brands fa-instagram"></i></a>
             </div>
-            <button ref={menuButtonRef} onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-md hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
+            <button ref={menuButtonRef} onClick={handleOpenMenuDropdown} id="button-hamburger" type="button" className="custom_md:hidden inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-primary rounded-sm hover:bg-primarylight hover:text-primarydark focus:outline-none" aria-controls="navbar-hamburger" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
               </svg>
             </button>
-            <button ref={languageButtonRef} onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-md py-1 px-1.5 text-center inline-flex items-center" type="button">{currentLanguage} 
+            <button ref={languageButtonRef} onClick={handleOpenLanguageDropdown} id="button-language" data-dropdown-toggle="dropdown" className="ml-3 text-primary hover:text-primarydark font-bold hover:bg-primarylight/70 focus:outline-none focus:ring-blue-300 rounded-sm py-1 px-1.5 text-center inline-flex items-center" type="button">{currentLanguage} 
               <svg className="w-2.5 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m1 1 4 4 4-4"/>
               </svg>
             </button>
-            <form className="border w-52 custom_xl:w-72 ml-3 hidden custom_lg:block">   
-                <div className="relative">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <form className="w-full ml-3 hidden custom_lg:block">   
+                <div className="relative w-full">
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-[12px] pointer-events-none">
                         <svg className="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                         </svg>
                     </div>
-                    <input type="search" id="search" className="block w-full h-9 p-2 ps-10 text-primarydark border border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
+                    <input type="search" id="search" className="block rounded-none w-full h-8 p-2 ps-10 text-primarydark border-primary border-0 border-b-2 bg-gray-50 focus:shadow-md focus:outline-none" placeholder={currentLanguage === "EN" ? "Search" : "Tìm kiếm"} required />
                 </div>
             </form>
           </div>
           
           {isOpenMenuDropdown && (
             <div ref={menuDropdownRef} id="navbar-hamburger" className="custom_md:hidden w-full relative">
-              <div onClick={handleOpenMenuDropdown} className="absolute w-full flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
+              <div onClick={handleOpenMenuDropdown} className="absolute w-full flex flex-col font-medium mt-4 rounded-sm bg-gray-50">
                 {navbarContent && navbarContent.list.map(element => (
-                  <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary">{currentLanguage === "EN" ? element.name.EN : element.name.VN}</Link>
+                  <Link to={element.path} className="block py-2 px-3 text-primary hover:text-white hover:bg-primary hover:rounded-sm">{currentLanguage === "EN" ? element.name.EN : element.name.VN}</Link>
                 ))}
               </div>
             </div>
@@ -179,9 +179,9 @@ export const NavBar = () => {
 
           {isOpenLanguageDropdown && (
             <div ref={languageDropdownRef} id="navbar-language" className=" flex justify-end custom_lg:justify-center relative">
-              <div onClick={handleOpenLanguageDropdown} className="absolute min-w-36 flex flex-col justify-self-end font-medium mt-4 rounded-lg bg-gray-50 ">
-                  <p onClick={changeLanguageToEN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary">English - EN</p>
-                  <p onClick={changeLanguageToVN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary">Tiếng Việt - VN</p>
+              <div onClick={handleOpenLanguageDropdown} className="absolute min-w-36 flex flex-col justify-self-end font-medium mt-4 rounded-sm bg-gray-50 ">
+                  <p onClick={changeLanguageToEN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary hover:rounded-sm">English - EN</p>
+                  <p onClick={changeLanguageToVN} className="justify-end custom_md:justify-center w-full flex py-2 px-3 text-primary hover:text-white hover:bg-primary hover:rounded-sm">Tiếng Việt - VN</p>
               </div>
             </div>
           )}

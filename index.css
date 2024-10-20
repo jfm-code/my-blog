@@ -25,7 +25,7 @@
     @apply grid custom_nm:grid-cols-2 custom_lg:grid-cols-3 gap-3;
   }
   .icon-style {
-    @apply p-2 hover:bg-primarylight hover:text-primarydark rounded-md;
+    @apply p-2 hover:bg-primarylight hover:text-primarydark rounded-sm;
   }
 }
 
