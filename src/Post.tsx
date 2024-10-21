@@ -15,7 +15,6 @@ export const Post = () => {
     const [currentTopics, setCurrentTopics] = useState<string[]>([]);
     let [latestpostContent, setLatestPostContent] = useState<string>("");
     const [currentPage, setCurrentPage] = useState(1); // For the pagination component
-    // const [postsPerPage] = useState(3); // For the pagination component
     let [postsPerPage, setPostPerPage] = useState(3);
     const { currentLanguage } = useLanguage();
     const viewportWidth = window.innerWidth;

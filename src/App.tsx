@@ -7,7 +7,7 @@ import { SinglePost } from './SinglePost';
 import { TopicPost } from './TopicPost';
 import { Album } from './Album';
 import { Picture } from './Picture';
-import { Coding } from './Coding';
+import { Coding } from './Notes';
 import { Tutorial } from './Tutorial';
 import { Video } from './Video';
 import { Footer } from './Footer';
@@ -29,8 +29,8 @@ function App() {
               <Route path="/post/topic/:topicID" element={<TopicPost />} />
               <Route path="/album" element={<Album/>} />
               <Route path="/album/:albumID" element={<Picture />} />
-              <Route path="/coding" element={<Coding/>} />
-              <Route path="/coding/:tutorialID" element={<Tutorial />} />
+              <Route path="/note" element={<Coding/>} />
+              <Route path="/note/:tutorialID" element={<Tutorial />} />
               <Route path="/video" element={<Video/>} />
             </Routes>
             <ScrollToTop />
